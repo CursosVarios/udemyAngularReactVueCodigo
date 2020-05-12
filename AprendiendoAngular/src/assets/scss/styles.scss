@@ -90,6 +90,18 @@ body {
     }
   }
 }
+.year-green,
+.year-red {
+  background-color: green;
+  display: block;
+  color: white;
+  padding: 5px;
+  width: 120px;
+  text-align: center;
+}
+.year-red {
+  background-color: red;
+}
 
 #slider {
   width: 100%;

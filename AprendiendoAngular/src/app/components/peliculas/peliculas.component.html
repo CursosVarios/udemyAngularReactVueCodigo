@@ -15,8 +15,17 @@
       <img src={{pelicula.img}} alt={{pelicula.title}}>
     </div>
     <h2>{{i+1}}{{pelicula.title}}</h2>
-
     <span class="date">Hace 5 minutos </span>
+    <!-- ngStyle -->
+    <!-- <span class="year" [style.background]="pelicula.year > 2016?'green':'red'"> -->
+    <!-- <span class="year" [class.year-green]="pelicula.year > 2016" [class.year-red]="pelicula.year <= 2016"> -->
+    <!-- <span class="year" [class]="pelicula.year > 2016 ? 'year-green':'year-red'"> -->
+    <span class="year" [ngClass]="{
+      'year-green': pelicula.year > 2016,
+      'year-red': pelicula.year <= 2016
+    }">
+      {{pelicula.year}}
+    </span>
     <a href="#">leer mas</a>
     <div class="clearfix"></div>
   </article>
