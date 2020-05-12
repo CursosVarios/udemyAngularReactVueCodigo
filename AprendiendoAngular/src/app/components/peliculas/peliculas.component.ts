@@ -35,7 +35,7 @@ export class PeliculasComponent implements OnInit, DoCheck, OnDestroy {
         "https://es.web.img2.acsta.net/medias/nmedia/18/89/61/50/20058082.jpg"
       ),
     ];
-    this.fecha = new Date();
+    this.fecha = "2020";
   }
 
   ngOnInit(): void {

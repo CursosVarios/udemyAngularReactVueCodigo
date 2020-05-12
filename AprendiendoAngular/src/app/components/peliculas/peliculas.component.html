@@ -22,7 +22,8 @@
       <h5>
         {{favorita.year | date:'full'}}
       </h5>
-    </div>
+    </div>{{fecha | espar }}
+    <hr><br>
     {{fecha | date:'dd/MM/yyyy' }}
     <div id="articles" *ngIf='peliculas'>
 
