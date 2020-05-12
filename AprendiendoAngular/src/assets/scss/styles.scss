@@ -76,14 +76,19 @@ body {
     margin-right: 15px;
   }
 }
-#menu a {
-  text-decoration: none;
-  color: #444;
-  transition: 0.3s all;
-}
-
-#menu a:hover {
-  color: $colorBase;
+#menu {
+  a {
+    text-decoration: none;
+    color: #444;
+    transition: 0.3s all;
+    &:hover {
+      color: $colorBase;
+    }
+    &.active {
+      color: $colorBase;
+      font-size: 1.15em;
+    }
+  }
 }
 
 #slider {
