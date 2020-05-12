@@ -7,8 +7,9 @@ import Pelicula from "src/app/models/pelicula";
   styleUrls: ["./peliculas.component.scss"],
 })
 export class PeliculasComponent implements OnInit, DoCheck, OnDestroy {
-  titulo: string;
-  peliculas: Pelicula[];
+  public titulo: string;
+  public peliculas: Pelicula[];
+  public favorita: Pelicula;
   constructor() {
     this.titulo = "peliculas";
     this.peliculas = [
@@ -48,5 +49,12 @@ export class PeliculasComponent implements OnInit, DoCheck, OnDestroy {
 
   changeTitulo() {
     this.titulo += "1";
+  }
+
+  MostrarFavorita(e) {
+    // console.log("favorita que llega");
+    // console.log(e);
+    this.favorita = e.pelicula;
+    console.log(this.favorita);
   }
 }

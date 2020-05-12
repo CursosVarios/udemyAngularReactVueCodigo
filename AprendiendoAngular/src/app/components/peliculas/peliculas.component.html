@@ -7,15 +7,27 @@
     <!-- <div *ngFor='peliculas'></div>
     {{peliculas[0].title}}
     <h2>numero de peliculas</h2>
-    <div *ngIf="peliculas.length <= 3"> pocas </div>
+    <div *ngIf="peliculas .length <= 3"> pocas </div>
     <div *ngIf="peliculas.length > 3"> muchas </div>
     {{peliculas.length}}
-    <h2>listado de peliculas</h2> -->
+    <h2>listado de pelicu las</h2> -->
+    <div id="favorita" *ngIf="favorita">
+      <h2 class="subheader">
+        Pelicula Favorita
+      </h2>
+      <h4>
+
+        {{favorita.title}}
+      </h4>
+      <h5>
+        {{favorita.year}}
+      </h5>
+    </div>
     <div id="articles" *ngIf='peliculas'>
 
       <div *ngFor="let pelicula of peliculas;let i = index">
 
-        <app-pelicula [pelicula]="pelicula" [i]="i+1"></app-pelicula>
+        <app-pelicula [pelicula]="pelicula" [i]="i+1" (MarcarFavorita)="MostrarFavorita($event)"></app-pelicula>
       </div>
     </div>
   </section>
