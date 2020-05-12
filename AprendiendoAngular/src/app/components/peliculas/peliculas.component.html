@@ -17,12 +17,13 @@
       </h2>
       <h4>
 
-        {{favorita.title}}
+        {{favorita.title | uppercase}}
       </h4>
       <h5>
-        {{favorita.year}}
+        {{favorita.year | date:'full'}}
       </h5>
     </div>
+    {{fecha | date:'dd/MM/yyyy' }}
     <div id="articles" *ngIf='peliculas'>
 
       <div *ngFor="let pelicula of peliculas;let i = index">
