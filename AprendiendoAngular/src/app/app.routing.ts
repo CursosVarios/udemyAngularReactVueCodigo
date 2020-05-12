@@ -7,6 +7,7 @@ import { FormularioComponent } from "./components/formulario/formulario.componen
 import { PeliculasComponent } from "./components/peliculas/peliculas.component";
 import { PaginaComponent } from "./components/pagina/pagina.component";
 import { from } from "rxjs";
+import { ErrorComponent } from "./components/error/error.component";
 
 const appRoutes: Routes = [
   { path: "", component: HomeComponent },
@@ -15,6 +16,7 @@ const appRoutes: Routes = [
   { path: "formulario", component: FormularioComponent },
   { path: "peliculas", component: PeliculasComponent },
   { path: "pagina", component: PaginaComponent },
+  { path: "**", component: ErrorComponent },
 ];
 
 export const appRoutingProviders: any[] = [];
