@@ -20,9 +20,14 @@ export class MiComponentComponent {
   titulo: string;
   comentario: string;
   year: number;
+  showMovies: Boolean;
   constructor() {
     this.titulo = "este es el titulo";
     this.comentario = "comentario";
     this.year = 251;
+    this.showMovies = true;
+  }
+  hidemovies() {
+    this.showMovies = false;
   }
 }

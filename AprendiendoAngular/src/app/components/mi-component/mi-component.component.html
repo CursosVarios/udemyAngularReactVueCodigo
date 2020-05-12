@@ -1,3 +1,8 @@
 {{titulo}}
 {{comentario}}
 {{year}}
+
+<button (click)="hidemovies()">ocultar peliculas</button>
+<div *ngIf="showMovies">
+  <app-peliculas></app-peliculas>
+</div>
