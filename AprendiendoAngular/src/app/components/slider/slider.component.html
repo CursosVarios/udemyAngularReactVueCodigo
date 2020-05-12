@@ -1,6 +1,10 @@
 <div class="clearfix"></div>
 
-<div class="slider-big" id="slider">
+<div id="slider" [ngClass]="{
+'slider-big': !size || size == 'big',
+'slider-small' : size == 'small'
+}
+">
   <h1>{{nombre}}</h1>
-  <a href="#" class="btn-white">ir al blog</a>
+  <a [routerLink]="['/blog']" *ngIf="!size || size == 'big'" href="#" class="btn-white">ir al blog</a>
 </div>
