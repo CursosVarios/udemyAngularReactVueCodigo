@@ -17,4 +17,7 @@ export class PaginaComponent implements OnInit {
       this.apellido = params.apellido;
     });
   }
+  redirection() {
+    this._router.navigate(["/pagina", "el nombre", "el apellido"]);
+  }
 }

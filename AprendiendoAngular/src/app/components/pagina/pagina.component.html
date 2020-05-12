@@ -5,3 +5,8 @@
   <p>nombre = {{nombre}}</p>
   <p>apellido = {{apellido}}</p>
 </div>
+<div *ngIf="!(nombre && apellido)">
+  <p> no hay parametros</p>
+</div>
+
+<button (click)="redirection()">llevar a formulario</button>
