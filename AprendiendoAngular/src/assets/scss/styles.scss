@@ -26,14 +26,14 @@ body {
   font-size: 30px;
   float: left;
   margin: 35px;
-}
-#logo img {
-  display: block;
-  float: left;
-  width: 30px;
-  /* margin-right: -10px; */
-  margin-top: -5px;
-  animation: latir infinite 5s linear;
+  img {
+    display: block;
+    float: left;
+    width: 30px;
+    /* margin-right: -10px; */
+    margin-top: -5px;
+    animation: latir infinite 5s linear;
+  }
 }
 @keyframes latir {
   0% {
@@ -260,22 +260,26 @@ body {
   &-success {
     background-color: green;
     transition: 0.3s background;
-    &:hover {
+    &:hover:not(:disable) {
       background-color: black;
     }
   }
   &-warning {
     background-color: orange;
-    &:hover {
+    &:hover:not(:disable) {
       opacity: 0.72;
     }
   }
   &-danger {
     background-color: red;
-    &:hover {
+    &:hover:not(:disable) {
       opacity: 0.72;
     }
   }
+}
+input:disabled {
+  opacity: 0.2;
+  background-color: green;
 }
 .buttons {
   display: flex;
@@ -285,6 +289,7 @@ body {
 }
 
 input[type="text"],
+input[type="file"],
 textarea {
   width: 100%;
   min-height: 30px;
@@ -295,6 +300,7 @@ textarea {
     box-shadow: 0 0 5px #444 inset;
   }
 }
+
 textarea {
   height: 150%;
   width: 100%;

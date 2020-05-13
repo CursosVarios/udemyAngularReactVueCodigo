@@ -2,43 +2,35 @@
 <div class="center">
   <section id="content">
     <h2 class="subheader">Crear Articulo</h2>
-    <form action="" class="mid-form" (ngSubmit)="onSubmit()" #userForm="ngForm">
-      <div class="form-group">
-        <label for="nombre">Nombre</label>
-        <input type="text" name="nombre" #nombre="ngModel" [(ngModel)]="user.name" required pattern="[a-zA-Z]+">
+    <form action="" class="mid-form" (ngSubmit)="onSubmit()" #articleForm="ngForm">
 
-        <small *ngIf="!nombre.valid && nombre.touched"> ¿cual es tu nombre?</small>
-      </div>
       <div class="form-group">
-        <label for="apellidos">Apellidos</label>
-        <input type="text" name="apellidos" #apellido="ngModel" [(ngModel)]="user.lastname" required
-          pattern="[a-zA-Z]+">
-        <small *ngIf="!apellido.valid && apellido.touched">¿cual es tu apellido?</small>
-      </div>
-      <div class="form-group">
-        <label for="bio">biografia</label>
-        <textarea name="bio" id="bio" #bio="ngModel" [(ngModel)]="user.bio" required></textarea>
-
-        <small *ngIf="!bio.valid && bio.touched">
-          ¿cual es tu biografia?
+        <label for="title">titulo</label>
+        <input type="text" name="title" #title="ngModel" [(ngModel)]="article.title" required>
+        <small *ngIf="!title.valid && title.touched">
+          ¿cual es el title?
         </small>
       </div>
-      <div class="form-group radiobuttons">
-        <input type="radio" name="genero" value="hombre" #gen="ngModel" [(ngModel)]="user.gen" required>hombre
-        <input type="radio" name="genero" value="mujer" #gen="ngModel" [(ngModel)]="user.gen">mujer
-        <input type="radio" name="genero" value="otro" #gen="ngModel" [(ngModel)]="user.gen">otro
 
-        <small *ngIf="!gen.valid && gen.touched">
-          Selecione un genero
+      <div class="form-group">
+        <label for="content">conteido</label>
+        <textarea name="content" id="content" #content="ngModel" [(ngModel)]="article.content" required></textarea>
+        <small *ngIf="!content.valid && content.touched">
+          ¿cual es el contenido?
         </small>
       </div>
+
+      <div class="form-group">
+        <label for="image">imagen</label>
+        <input type="file" name="file0">
+
+      </div>
+
       <div class="clearfix"></div>
-      <input type="submit" value="Enviar" class="btn btn-success" [disabled]="userForm.invalid">
+      <input type="submit" value="Enviar" class="btn btn-success" [disabled]="articleForm.invalid">
+
     </form>
-    <h2 class="subheader">Eventos</h2>
-    <button (click)="hasDadoClick()">dale click</button>
-    <input type="text" [(ngModel)]="campo" (blur)="hasSalido()" (keyup.enter)="hasOprimido()">
-    {{campo}}
+
   </section>
 
   <app-sidebar></app-sidebar>
