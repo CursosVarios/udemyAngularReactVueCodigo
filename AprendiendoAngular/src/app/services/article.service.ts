@@ -20,4 +20,7 @@ export class ArticuleService {
     }
     return this._http.get(this.url + article);
   }
+  getArticle(articleid: String): Observable<any> {
+    return this._http.get(this.url + "article/" + articleid);
+  }
 }

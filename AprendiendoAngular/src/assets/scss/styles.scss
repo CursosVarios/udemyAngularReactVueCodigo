@@ -199,11 +199,10 @@ body {
   margin-top: 50px;
   border-radius: 4px;
   transition: 0.3s background;
-}
-
-.btn-white:hover {
-  background-color: #444;
-  color: $colorBase;
+  &:hover {
+    background-color: #444;
+    color: $colorBase;
+  }
 }
 
 #slider.slider-small {
@@ -258,14 +257,31 @@ body {
   text-decoration: none;
   max-width: 120px;
   border: none;
-}
-
-.btn-success {
-  background-color: green;
-  transition: 0.3s background;
-  &:hover {
-    background-color: black;
+  &-success {
+    background-color: green;
+    transition: 0.3s background;
+    &:hover {
+      background-color: black;
+    }
   }
+  &-warning {
+    background-color: orange;
+    &:hover {
+      opacity: 0.72;
+    }
+  }
+  &-danger {
+    background-color: red;
+    &:hover {
+      opacity: 0.72;
+    }
+  }
+}
+.buttons {
+  display: flex;
+  //background-color: green; // align-items: ;
+  justify-content: center;
+  //padding: 15px;
 }
 
 input[type="text"],

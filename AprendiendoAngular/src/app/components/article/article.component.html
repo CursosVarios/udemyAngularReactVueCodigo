@@ -1,27 +1,23 @@
-<app-slider [nombre]="'ARTICULO'" [size]="'small'"></app-slider>
 <div class="center">
   <section id="content">
     <!-- <app-articles [articles]="articles"></app-articles> -->
-    <article class="article-item-detail" id="article-template">
+    <div class="loading" *ngIf="!article"> Cargando ....</div>
+    <article class="article-item-detail" id="article-template" *ngIf="article">
       <div class="image-wrap">
-        <img
-          src="https://images.unsplash.com/photo-1588894181387-939771976bdd?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=306&q=80"
-          alt="imagen estrellas">
+        <img src="{{url+'get-image/'+article.image}}" alt="imagen estrellas" *ngIf="article.image">
+        <img src="assets/images/noImage.jpg" alt="no hay imagen disponible" *ngIf="!article.image">
       </div>
-      <h1 class="subheader">articulo de prueba</h1>
+      <h1 class="subheader">{{article.title}}</h1>
 
-      <span class="date">Hace 5 minutos </span>
+      <span class="date">{{article.date|amLocale : 'es'|amTimeAgo}}</span>
       <div class="clearfix"></div>
       <p>
-        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolorem minus repellendus reprehenderit placeat
-        mollitia, repellat non itaque, accusamus quas rerum iure ab voluptas quae odit. Quis facere blanditiis illo
-        libero.
-
-      </p>
-      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus natus nostrum veniam cumque dolore
-        voluptate culpa ut unde nulla voluptatum, hic ea necessitatibus repellendus iure facilis provident consequatur
-        perspiciatis alias!</p>
+        {{article.content}}</p>
     </article>
+    <div class="buttons">
+      <a class="btn btn-warning">Editar</a>
+      <a class="btn btn-danger">Borrar</a>
+    </div>
   </section>
 
   <app-sidebar></app-sidebar>
