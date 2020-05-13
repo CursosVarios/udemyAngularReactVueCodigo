@@ -10,7 +10,7 @@
     <h2>{{article.title}}</h2>
 
     <span class="date">{{article.date | amLocale:'es'| amTimeAgo}}</span>
-    <a href="#">leer mas</a>
+    <a [routerLink]="['/blog/articulo/'+article._id]">leer mas</a>
     <div class="clearfix"></div>
   </article>
 </div>

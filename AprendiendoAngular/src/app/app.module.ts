@@ -20,6 +20,7 @@ import { ErrorComponent } from "./components/error/error.component";
 import { PeliculaComponent } from "./components/pelicula/pelicula.component";
 import { EsParPiPe } from "./pipes/espar.pipes";
 import { ArticlesComponent } from "./components/articles/articles.component";
+import { ArticleComponent } from './components/article/article.component';
 
 @NgModule({
   declarations: [
@@ -38,6 +39,7 @@ import { ArticlesComponent } from "./components/articles/articles.component";
     PeliculaComponent,
     EsParPiPe,
     ArticlesComponent,
+    ArticleComponent,
   ],
   imports: [
     BrowserModule,
