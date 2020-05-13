@@ -2,20 +2,7 @@
 <div class="center">
   <section id="content">
     <h2 class="subheader">{{titulo}}</h2>
-
-    <div class="article">
-      <article class="article-item" *ngFor="let article of articles">
-        <div class="image-wrap"><img src="{{url + 'get-image/' +article.image}}" alt="imagen estrellas"
-            *ngIf=article.image>
-          <img src="assets/images/noImage.jpg" alt="imagen estrellas" *ngIf=!article.image>
-        </div>
-        <h2>{{article.title}}</h2>
-
-        <span class="date">{{article.date}}</span>
-        <a href="#">leer mas</a>
-        <div class="clearfix"></div>
-      </article>
-    </div>
+    <app-articles [articles]="articles"></app-articles>
 
   </section>
 

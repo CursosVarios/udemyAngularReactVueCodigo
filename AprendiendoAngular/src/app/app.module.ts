@@ -18,6 +18,7 @@ import { PaginaComponent } from "./components/pagina/pagina.component";
 import { ErrorComponent } from "./components/error/error.component";
 import { PeliculaComponent } from "./components/pelicula/pelicula.component";
 import { EsParPiPe } from "./pipes/espar.pipes";
+import { ArticlesComponent } from './components/articles/articles.component';
 
 @NgModule({
   declarations: [
@@ -35,6 +36,7 @@ import { EsParPiPe } from "./pipes/espar.pipes";
     ErrorComponent,
     PeliculaComponent,
     EsParPiPe,
+    ArticlesComponent,
   ],
   imports: [BrowserModule, routing, FormsModule, HttpClientModule],
   providers: [appRoutingProviders],
