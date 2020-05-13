@@ -3,6 +3,7 @@ import { NgModule } from "@angular/core";
 import { appRoutingProviders, routing } from "./app.routing";
 import { FormsModule } from "@angular/forms";
 import { HttpClientModule } from "@angular/common/http";
+import { MomentModule } from "angular2-moment";
 
 import { AppComponent } from "./app.component";
 import { MiComponentComponent } from "./components/mi-component/mi-component.component";
@@ -18,7 +19,7 @@ import { PaginaComponent } from "./components/pagina/pagina.component";
 import { ErrorComponent } from "./components/error/error.component";
 import { PeliculaComponent } from "./components/pelicula/pelicula.component";
 import { EsParPiPe } from "./pipes/espar.pipes";
-import { ArticlesComponent } from './components/articles/articles.component';
+import { ArticlesComponent } from "./components/articles/articles.component";
 
 @NgModule({
   declarations: [
@@ -38,7 +39,13 @@ import { ArticlesComponent } from './components/articles/articles.component';
     EsParPiPe,
     ArticlesComponent,
   ],
-  imports: [BrowserModule, routing, FormsModule, HttpClientModule],
+  imports: [
+    BrowserModule,
+    routing,
+    FormsModule,
+    HttpClientModule,
+    MomentModule,
+  ],
   providers: [appRoutingProviders],
   bootstrap: [AppComponent],
 })
