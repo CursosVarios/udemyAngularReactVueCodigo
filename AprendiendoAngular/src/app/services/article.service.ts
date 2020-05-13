@@ -13,7 +13,11 @@ export class ArticuleService {
   pruebas() {
     return "servicio de articulo";
   }
-  getArticles(): Observable<any> {
-    return this._http.get(this.url + "articles");
+  getArticles(last: any = null): Observable<any> {
+    let article = "articles";
+    if (last != null) {
+      article += "/true";
+    }
+    return this._http.get(this.url + article);
   }
 }
