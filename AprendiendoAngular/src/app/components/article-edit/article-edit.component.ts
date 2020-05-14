@@ -4,6 +4,8 @@ import { ArticleService } from "src/app/services/article.service";
 import { Router, ActivatedRoute, Params } from "@angular/router";
 import globalVar from "src/app/services/global";
 
+import swal from "sweetalert";
+
 @Component({
   selector: "app-article-edit",
   templateUrl: "./article-edit.component.html",
