@@ -4,6 +4,7 @@ import { appRoutingProviders, routing } from "./app.routing";
 import { FormsModule } from "@angular/forms";
 import { HttpClientModule } from "@angular/common/http";
 import { MomentModule } from "angular2-moment";
+import { AngularFileUploaderModule } from "angular-file-uploader";
 
 import { AppComponent } from "./app.component";
 import { MiComponentComponent } from "./components/mi-component/mi-component.component";
@@ -20,9 +21,9 @@ import { ErrorComponent } from "./components/error/error.component";
 import { PeliculaComponent } from "./components/pelicula/pelicula.component";
 import { EsParPiPe } from "./pipes/espar.pipes";
 import { ArticlesComponent } from "./components/articles/articles.component";
-import { ArticleComponent } from './components/article/article.component';
-import { SearchComponent } from './components/search/search.component';
-import { ArticleNewComponent } from './components/article-new/article-new.component';
+import { ArticleComponent } from "./components/article/article.component";
+import { SearchComponent } from "./components/search/search.component";
+import { ArticleNewComponent } from "./components/article-new/article-new.component";
 
 @NgModule({
   declarations: [
@@ -51,6 +52,7 @@ import { ArticleNewComponent } from './components/article-new/article-new.compon
     FormsModule,
     HttpClientModule,
     MomentModule,
+    AngularFileUploaderModule,
   ],
   providers: [appRoutingProviders],
   bootstrap: [AppComponent],
