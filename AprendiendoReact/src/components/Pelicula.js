@@ -3,16 +3,17 @@ import React, { Component } from "react";
 class Pelicula extends Component {
   render() {
     console.log(this.props);
+    const { image, title, date } = this.props.pelicula;
     return (
-      <article class="article-item-detail">
-        <div class="image-wrap">
-          <img src={this.props.img} alt="imagen estrellas" />
+      <article className="article-item">
+        <div className="image-wrap">
+          <img src={image} alt="imagen estrellas" />
         </div>
-        <h1 class="subheader">{this.props.title}</h1>
+        <h2>{title}</h2>
 
-        <span class="date">{this.props.date} </span>
+        <span className="date">{date} </span>
         <a href="">Leer mas</a>
-        <div class="clearfix"></div>
+        <div className="clearfix"></div>
       </article>
     );
   }

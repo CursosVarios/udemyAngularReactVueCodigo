@@ -29,11 +29,11 @@ class Peliculas extends Component {
       <React.Fragment>
         <section id="content">
           <h4 className="subheader"> Componente de peliculas</h4>
-          {this.state.peliculas.map((peli, i) => {
-            return (
-              <Pelicula img={peli.image} title={peli.title} date={peli.date} />
-            );
-          })}
+          <div id="articles" className="peliculas">
+            {this.state.peliculas.map((peli, i) => {
+              return <Pelicula key={i} pelicula={peli} />;
+            })}
+          </div>
         </section>
       </React.Fragment>
     );
