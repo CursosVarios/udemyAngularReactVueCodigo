@@ -4,6 +4,7 @@ import "./assets/scss/App.scss";
 //
 import MiComponente from "./components/MiComponente";
 import Peliculas from "./components/Peliculas";
+import Header from "./components/Header";
 
 //impor componentes
 
@@ -18,6 +19,7 @@ function HolaMundo(nombre, edad) {
 function App() {
   return (
     <div className="App">
+      <Header />
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
