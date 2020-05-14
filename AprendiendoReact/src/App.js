@@ -1,7 +1,9 @@
 import React from "react";
 import logo from "./assets/images/logo.svg";
 import "./assets/scss/App.scss";
+//
 import MiComponente from "./components/MiComponente";
+import Peliculas from "./components/Peliculas";
 
 //impor componentes
 
@@ -25,6 +27,7 @@ function App() {
       </header>
       <section className="componentes">
         <MiComponente />
+        <Peliculas />
       </section>
     </div>
   );
