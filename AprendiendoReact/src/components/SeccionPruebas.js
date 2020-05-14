@@ -4,6 +4,16 @@ import MiComponente from "./MiComponente";
 import Peliculas from "./Peliculas";
 
 class SeccionPruebas extends Component {
+  contador = 0;
+  /*   constructor(props) {
+    super(props);
+    this.state = {
+      contador: 0,
+    };
+  } */
+  state = {
+    contador: 0,
+  };
   HolaMundo(nombre, edad) {
     return (
       <div>
@@ -12,7 +22,18 @@ class SeccionPruebas extends Component {
       </div>
     );
   }
-
+  Sumar() {
+    // this.contador++;
+    this.setState({
+      contador: this.state.contador + 1,
+    });
+  }
+  Restar() {
+    // this.contador--;
+    this.setState({
+      contador: this.state.contador - 1,
+    });
+  }
   render() {
     return (
       <section id="content">
@@ -21,12 +42,20 @@ class SeccionPruebas extends Component {
         <p>
           Edit <code>src/App.js</code> and save to reload.
         </p>
+        <h2 className="subheader"> Funciones y jsx basico</h2>
         {this.HolaMundo("nombre de alguien", 12)}
 
+        <h2 className="subheader">Componentes</h2>
         <section className="componentes">
           <MiComponente />
           <Peliculas />
         </section>
+        <h2 className="subheader">estados</h2>
+        <p>Contador:{this.state.contador}</p>
+        <p>
+          <input type="button" value="+" onClick={this.Sumar.bind(this)} />
+          <input type="button" value="-" onClick={this.Restar.bind(this)} />
+        </p>
       </section>
     );
   }
