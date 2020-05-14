@@ -2,6 +2,14 @@ import React from "react";
 import logo from "./logo.svg";
 import "./App.scss";
 
+function HolaMundo(nombre, edad) {
+  return (
+    <div>
+      <h2>hola pues {nombre}</h2>
+      <h3>edad {edad}</h3>
+    </div>
+  );
+}
 function App() {
   return (
     <div className="App">
@@ -10,6 +18,7 @@ function App() {
         <p>
           Edit <code>src/App.js</code> and save to reload.
         </p>
+        {HolaMundo("nombre de alguien", 12)}
         <a
           className="App-link"
           href="https://reactjs.org"
