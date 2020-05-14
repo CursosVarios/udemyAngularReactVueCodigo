@@ -1,6 +1,9 @@
 import React from "react";
-import logo from "./logo.svg";
-import "./App.scss";
+import logo from "./assets/images/logo.svg";
+import "./assets/scss/App.scss";
+import MiComponente from "./components/MiComponente";
+
+//impor componentes
 
 function HolaMundo(nombre, edad) {
   return (
@@ -19,15 +22,13 @@ function App() {
           Edit <code>src/App.js</code> and save to reload.
         </p>
         {HolaMundo("nombre de alguien", 12)}
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
       </header>
+      <sectio className="componentes">
+        <MiComponente />
+        <MiComponente />
+        <MiComponente />
+        <MiComponente />
+      </sectio>
     </div>
   );
 }
