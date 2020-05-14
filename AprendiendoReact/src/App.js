@@ -10,10 +10,11 @@ import SeccionPruebas from "./components/SeccionPruebas";
 //impor componentes
 
 function App() {
+  const blogString = "ir al blog";
   return (
     <div className="App">
       <Header />
-      <Slider />
+      <Slider title=" Titulo de la pagian w eb" blogString={blogString} />
 
       <div className="center">
         <SeccionPruebas />

@@ -4,8 +4,8 @@ class Slider extends Component {
   render() {
     return (
       <div class="slider-big" id="slider">
-        <h1>Titulo de la pagian w eb</h1>
-        <a className="btn-white">ir al blog</a>
+        <h1>{this.props.title}</h1>
+        <a className="btn-white">{this.props.blogString}</a>
       </div>
     );
   }
