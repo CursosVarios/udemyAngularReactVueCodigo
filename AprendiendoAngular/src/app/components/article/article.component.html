@@ -15,7 +15,7 @@
         {{article.content}}</p>
     </article>
     <div class="buttons">
-      <a class="btn btn-warning">Editar</a>
+      <a [routerLink]="['/blog/editar/'+article._id]" class="btn btn-warning">Editar</a>
       <a class="btn btn-danger">Borrar</a>
     </div>
   </section>

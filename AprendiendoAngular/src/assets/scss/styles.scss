@@ -300,7 +300,10 @@ textarea {
     box-shadow: 0 0 5px #444 inset;
   }
 }
-
+.image-thumb img {
+  width: 150px;
+  margin: 15px;
+}
 textarea {
   height: 150%;
   width: 100%;
