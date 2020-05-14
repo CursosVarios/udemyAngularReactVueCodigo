@@ -74,6 +74,11 @@ export class ArticleEditComponent implements OnInit {
         }
       },
       (err) => {
+        swal.fire(
+          "articulo Actualizado",
+          "el articulo no se actualizado ",
+          "error"
+        );
         console.log(err);
         this.status = "error";
       }
