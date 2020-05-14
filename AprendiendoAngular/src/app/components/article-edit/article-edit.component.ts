@@ -4,7 +4,7 @@ import { ArticleService } from "src/app/services/article.service";
 import { Router, ActivatedRoute, Params } from "@angular/router";
 import globalVar from "src/app/services/global";
 
-import swal from "sweetalert";
+import swal from "sweetalert2";
 
 @Component({
   selector: "app-article-edit",
@@ -61,6 +61,13 @@ export class ArticleEditComponent implements OnInit {
       (res) => {
         if (res.msg) {
           this.article = res.msg;
+
+          //alerta
+          swal.fire(
+            "articulo Actualizado",
+            "el articulo se a actualizado correctamente",
+            "success"
+          );
           this._router.navigate(["/blog/articulo", this.article._id]);
         } else {
           this.status = "error";

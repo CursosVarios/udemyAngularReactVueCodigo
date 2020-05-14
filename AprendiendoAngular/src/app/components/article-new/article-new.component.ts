@@ -3,6 +3,7 @@ import { Article } from "src/app/models/article";
 import { ArticleService } from "src/app/services/article.service";
 import { Router } from "@angular/router";
 import globalVar from "src/app/services/global";
+import swal from "sweetalert2";
 
 @Component({
   selector: "app-article-new",
@@ -55,6 +56,11 @@ export class ArticleNewComponent implements OnInit {
         console.log(res.article);
         if (res.article) {
           this.article = res.article;
+          swal.fire(
+            "articulo creado",
+            "el articulo se creo correctamente",
+            "success"
+          );
           this._router.navigate(["/blog/articulo", this.article._id]);
         } else {
           this.status = "error";
