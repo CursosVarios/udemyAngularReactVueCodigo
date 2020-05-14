@@ -1,20 +1,20 @@
 import { Component, OnInit } from "@angular/core";
 import { Article } from "src/app/models/article";
-import { ArticuleService } from "src/app/services/article.service";
+import { ArticleService } from "src/app/services/article.service";
 import { Router } from "@angular/router";
 
 @Component({
   selector: "app-article-new",
   templateUrl: "./article-new.component.html",
   styleUrls: ["./article-new.component.scss"],
-  providers: [ArticuleService],
+  providers: [ArticleService],
 })
 export class ArticleNewComponent implements OnInit {
   public article: Article;
   public status: string;
 
   constructor(
-    private _articleService: ArticuleService,
+    private _articleService: ArticleService,
     private _router: Router
   ) {
     this.article = new Article("", "", "", null, null);

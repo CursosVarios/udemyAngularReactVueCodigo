@@ -1,17 +1,17 @@
 import { Component, OnInit } from "@angular/core";
-import { ArticuleService } from "src/app/services/article.service";
+import { ArticleService } from "src/app/services/article.service";
 import { Article } from "src/app/models/article";
 
 @Component({
   selector: "app-home",
   templateUrl: "./home.component.html",
   styleUrls: ["./home.component.scss"],
-  providers: [ArticuleService],
+  providers: [ArticleService],
 })
 export class HomeComponent implements OnInit {
   public titulo: string;
   public articles: Article[];
-  constructor(private _articuleService: ArticuleService) {
+  constructor(private _articuleService: ArticleService) {
     this.titulo = "ultimos articulos";
   }
 

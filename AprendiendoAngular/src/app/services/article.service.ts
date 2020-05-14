@@ -5,7 +5,7 @@ import { Article } from "../models/article";
 import globalVar from "./global";
 
 @Injectable()
-export class ArticuleService {
+export class ArticleService {
   public url: string;
   constructor(private _http: HttpClient) {
     this.url = globalVar.url;

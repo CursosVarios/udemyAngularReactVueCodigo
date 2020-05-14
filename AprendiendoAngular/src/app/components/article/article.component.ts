@@ -1,5 +1,5 @@
 import { Component, OnInit } from "@angular/core";
-import { ArticuleService } from "src/app/services/article.service";
+import { ArticleService } from "src/app/services/article.service";
 import { Article } from "src/app/models/article";
 import { Router, ActivatedRoute, Params } from "@angular/router";
 import globalVar from "src/app/services/global";
@@ -8,14 +8,14 @@ import globalVar from "src/app/services/global";
   selector: "app-article",
   templateUrl: "./article.component.html",
   styleUrls: ["./article.component.scss"],
-  providers: [ArticuleService],
+  providers: [ArticleService],
 })
 export class ArticleComponent implements OnInit {
   public title: string;
   public article: Article;
   public url: string;
   constructor(
-    private _articleService: ArticuleService,
+    private _articleService: ArticleService,
     private _route: ActivatedRoute,
     private _router: Router
   ) {

@@ -1,13 +1,13 @@
 import { Component, OnInit } from "@angular/core";
 import { ActivatedRoute, Router, Params } from "@angular/router";
 import { Article } from "src/app/models/article";
-import { ArticuleService } from "src/app/services/article.service";
+import { ArticleService } from "src/app/services/article.service";
 
 @Component({
   selector: "app-search",
   templateUrl: "./search.component.html",
   styleUrls: ["./search.component.scss"],
-  providers: [ArticuleService],
+  providers: [ArticleService],
 })
 export class SearchComponent implements OnInit {
   public articles: Article[];
@@ -15,7 +15,7 @@ export class SearchComponent implements OnInit {
   constructor(
     private _route: ActivatedRoute,
     private _router: Router,
-    private _articleservice: ArticuleService
+    private _articleservice: ArticleService
   ) {}
 
   ngOnInit(): void {
