@@ -23,12 +23,9 @@ function App() {
         </p>
         {HolaMundo("nombre de alguien", 12)}
       </header>
-      <sectio className="componentes">
+      <section className="componentes">
         <MiComponente />
-        <MiComponente />
-        <MiComponente />
-        <MiComponente />
-      </sectio>
+      </section>
     </div>
   );
 }
