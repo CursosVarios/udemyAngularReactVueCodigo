@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 
 import MiComponente from "./MiComponente";
-import Peliculas from "./Peliculas";
 
 class SeccionPruebas extends Component {
   contador = 0;
@@ -48,7 +47,8 @@ class SeccionPruebas extends Component {
         <h2 className="subheader">Componentes</h2>
         <section className="componentes">
           <MiComponente />
-          <Peliculas />
+          <MiComponente />
+          <MiComponente />
         </section>
         <h2 className="subheader">estados</h2>
         <p>Contador:{this.state.contador}</p>
