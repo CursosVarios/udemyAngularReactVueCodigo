@@ -16,7 +16,7 @@
     </article>
     <div class="buttons">
       <a [routerLink]="['/blog/editar/'+article._id]" class="btn btn-warning">Editar</a>
-      <a class="btn btn-danger">Borrar</a>
+      <a (click)="borrarArticle(article._id)" class="btn btn-danger">Borrar</a>
     </div>
   </section>
 

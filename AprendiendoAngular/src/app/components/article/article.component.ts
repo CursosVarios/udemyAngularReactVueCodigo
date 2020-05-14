@@ -41,4 +41,18 @@ export class ArticleComponent implements OnInit {
       );
     });
   }
+  borrarArticle(id) {
+    this._articleService.delete(id).subscribe(
+      (res) => {
+        console.log(res);
+        if (res.msg) {
+          alert(" Articulo Borrado Correctamente");
+          this._router.navigate(["/blog"]);
+        }
+      },
+      (err) => {
+        console.log(err);
+      }
+    );
+  }
 }
