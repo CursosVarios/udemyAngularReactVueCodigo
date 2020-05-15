@@ -8,6 +8,7 @@ import Sidebar from "./components/Sidebar";
 import Footer from "./components/Footer";
 import SeccionPruebas from "./components/SeccionPruebas";
 import Peliculas from "./components/Peliculas";
+import Router from "./Router";
 //impor componentes
 
 function App() {
@@ -18,7 +19,8 @@ function App() {
       <Slider title=" Titulo de la pagian w eb" blogString={blogString} />
 
       <div className="center">
-        <Peliculas />
+        {/* <Peliculas /> */}
+        <Router></Router>
         <Sidebar />
       </div>
       <Footer />
