@@ -22,13 +22,64 @@ class Peliculas extends Component {
           "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTyAMEw4Pg_MTY4e_mCK5xIzw32lQ6Tf4SPnCGE8x4bTytCbB4P&usqp=CAU",
         date: 2018,
       },
+      {
+        title: "looper",
+        image:
+          "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTyAMEw4Pg_MTY4e_mCK5xIzw32lQ6Tf4SPnCGE8x4bTytCbB4P&usqp=CAU",
+        date: 2018,
+      },
+      {
+        title: "looper",
+        image:
+          "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTyAMEw4Pg_MTY4e_mCK5xIzw32lQ6Tf4SPnCGE8x4bTytCbB4P&usqp=CAU",
+        date: 2018,
+      },
+      {
+        title: "looper",
+        image:
+          "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTyAMEw4Pg_MTY4e_mCK5xIzw32lQ6Tf4SPnCGE8x4bTytCbB4P&usqp=CAU",
+        date: 2018,
+      },
+      {
+        title: "looper",
+        image:
+          "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTyAMEw4Pg_MTY4e_mCK5xIzw32lQ6Tf4SPnCGE8x4bTytCbB4P&usqp=CAU",
+        date: 2018,
+      },
+      {
+        title: "looper",
+        image:
+          "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTyAMEw4Pg_MTY4e_mCK5xIzw32lQ6Tf4SPnCGE8x4bTytCbB4P&usqp=CAU",
+        date: 2018,
+      },
+      {
+        title: "looper",
+        image:
+          "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTyAMEw4Pg_MTY4e_mCK5xIzw32lQ6Tf4SPnCGE8x4bTytCbB4P&usqp=CAU",
+        date: 2018,
+      },
     ],
+  };
+  CambiarTitulo = () => {
+    let { peliculas } = this.state;
+
+    var random = Math.floor(Math.random() * peliculas.length);
+    // console.log(random);
+    peliculas[random].title = "batman 2";
+    this.setState(peliculas);
   };
   render() {
     return (
       <React.Fragment>
         <section id="content">
           <h4 className="subheader"> Componente de peliculas</h4>
+          <p>
+            <input
+              type="button"
+              value="cambiarTitulo"
+              onClick={this.CambiarTitulo}
+            />
+          </p>
           <div id="articles" className="peliculas">
             {this.state.peliculas.map((peli, i) => {
               return <Pelicula key={i} pelicula={peli} />;
