@@ -59,6 +59,7 @@ class Peliculas extends Component {
         date: 2018,
       },
     ],
+    favorita: null,
   };
   CambiarTitulo = () => {
     let { peliculas } = this.state;
@@ -67,6 +68,11 @@ class Peliculas extends Component {
     // console.log(random);
     peliculas[random].title = "batman 2";
     this.setState(peliculas);
+  };
+  favorita = (pelicula, i) => {
+    console.log("marcada favorita ", i);
+    console.log(pelicula);
+    this.setState({ favorita: pelicula });
   };
   render() {
     return (
@@ -80,9 +86,22 @@ class Peliculas extends Component {
               onClick={this.CambiarTitulo}
             />
           </p>
+          {this.state.favorita && (
+            <p>
+              <strong>Pelicula Favorita: </strong>
+              <span>{this.state.favorita.title}</span>
+            </p>
+          )}
           <div id="articles" className="peliculas">
             {this.state.peliculas.map((peli, i) => {
-              return <Pelicula key={i} pelicula={peli} />;
+              return (
+                <Pelicula
+                  key={i}
+                  pelicula={peli}
+                  marcarFavorita={this.favorita}
+                  indice={i}
+                />
+              );
             })}
           </div>
         </section>
