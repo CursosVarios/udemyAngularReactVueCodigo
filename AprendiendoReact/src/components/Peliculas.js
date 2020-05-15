@@ -86,6 +86,20 @@ class Peliculas extends Component {
     this.setState({ favorita: pelicula });
   };
   render() {
+    let favorita = (
+      <p>
+        <strong>No hay una pelicula favorita</strong>
+      </p>
+    );
+
+    if (this.state.favorita)
+      favorita = (
+        <p>
+          <strong>Pelicula Favorita: </strong>
+          <span>{this.state.favorita.title}</span>
+        </p>
+      );
+
     return (
       <React.Fragment>
         <section id="content">
@@ -97,12 +111,17 @@ class Peliculas extends Component {
               onClick={this.CambiarTitulo}
             />
           </p>
-          {this.state.favorita && (
+          {/* {this.state.favorita ? (
             <p>
               <strong>Pelicula Favorita: </strong>
               <span>{this.state.favorita.title}</span>
             </p>
-          )}
+          ) : (
+            <p>
+              <strong>No hay una pelicula favorita</strong>
+            </p>
+          )} */}
+          {favorita}
           <div id="articles" className="peliculas">
             {this.state.peliculas.map((peli, i) => {
               return (
