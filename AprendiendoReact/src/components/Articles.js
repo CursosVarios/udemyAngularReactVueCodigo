@@ -10,7 +10,9 @@ class Articles extends Component {
   };
   url = Global.url;
   componentWillMount() {
-    if (this.props.home === "true") {
+    if (this.props.search) {
+      this.getSearch(this.props.search);
+    } else if (this.props.home === "true") {
       this.getArticles(1);
     } else {
       this.getArticles();
@@ -26,6 +28,24 @@ class Articles extends Component {
         console.log(res.data.article);
       })
       .catch((err) => console.log("ERROR", err));
+  };
+  getSearch = (search) => {
+    Axios.get(this.url + "/search/" + search)
+      .then((res) => {
+        console.log(res);
+        this.setState({
+          articles: res.data.art,
+          status: "success",
+        });
+        console.log(res.data.art);
+      })
+      .catch((err) => {
+        console.log("ERROR", err);
+        this.setState({
+          articles: {},
+          status: "success",
+        });
+      });
   };
 
   render() {
