@@ -14,6 +14,9 @@ class Router extends Component {
           <Route exact path="/" component={Peliculas} />
           <Route exact path="/ruta-prueba" component={SeccionPruebas} />
           <Route exact path="/mi-componente" component={MiComponente} />
+
+          <Route exact path="/pg2" render={() => <h1>hh</h1>} />
+          <Route exact path="/pg1" render={() => <h1>pg1</h1>} />
           <Route component={Error} />
         </Switch>
       </BrowserRouter>
