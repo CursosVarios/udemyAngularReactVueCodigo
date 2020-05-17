@@ -9,12 +9,12 @@ class Blog extends Component {
       <React.Fragment>
         <Slider title=" Pagina Blog" size="slider-small" />
         <div className="center">
-          <div className="content">
+          <section id="content">
             {/* <h1 className="subheader">Ultimos articulos</h1>
              */}
 
             <Articles></Articles>
-          </div>
+          </section>
           <Sidebar blog="true" />
         </div>
       </React.Fragment>

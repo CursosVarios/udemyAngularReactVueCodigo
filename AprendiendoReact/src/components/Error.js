@@ -1,9 +1,9 @@
 import React from "react";
 const Error = () => {
   return (
-    <sectio id="content">
+    <section id="content">
       <h2 className="subheader">Pagina no encontrada</h2>
-    </sectio>
+    </section>
   );
 };
 

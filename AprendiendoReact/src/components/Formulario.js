@@ -34,7 +34,7 @@ class Formulario extends Component {
     return (
       <React.Fragment>
         <div className="center">
-          <div className="content">
+          <div id="content">
             {/* <h1 className="subheader">Ultimos articulos</h1> */}
             <h1 className="subheader">Formulario </h1>
 

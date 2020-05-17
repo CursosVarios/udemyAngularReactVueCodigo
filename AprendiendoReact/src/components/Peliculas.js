@@ -120,11 +120,11 @@ class Peliculas extends Component {
               <strong>Pelicula Favorita: </strong>
               <span>{this.state.favorita.title}</span>
             </p>
-          ) : (
-            <p>
-              <strong>No hay una pelicula favorita</strong>
-            </p>
-          )} */}
+            ) : (
+              <p>
+                <strong>No hay una pelicula favorita</strong>
+              </p>
+            )} */}
             {favorita}
             <div id="articles" className="peliculas">
               {this.state.peliculas.map((peli, i) => {

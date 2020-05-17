@@ -14,7 +14,7 @@ class Search extends Component {
       <React.Fragment>
         <Slider title={"Busqueda" + busqueda} size="slider-small" />
         <div className="center">
-          <div className="content">
+          <div id="content">
             {/* <h1 className="subheader">Ultimos articulos</h1>
              */}
 

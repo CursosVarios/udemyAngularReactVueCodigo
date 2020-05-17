@@ -9,7 +9,7 @@ class Home extends Component {
       <React.Fragment>
         <Slider title=" Pagina Home" blogString="Home" size="slider-big" />
         <div className="center">
-          <div className="content">
+          <div id="content">
             {/* <h1 className="subheader">Ultimos articulos</h1> */}
             <Articles home="true"></Articles>
           </div>
