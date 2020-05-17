@@ -6,6 +6,7 @@ import noImage from "../assets/images/noImage.jpg";
 import Moment from "react-moment";
 import "moment/locale/es";
 import Axios from "axios";
+import { Link } from "react-router-dom";
 class ArticleDetails extends Component {
   url = Global.url;
   state = { article: null };
@@ -54,6 +55,10 @@ class ArticleDetails extends Component {
                   </span>
                   <div className="clearfix"></div>
                   <p>{article.content}</p>
+                  <Link to="/blog/editar/" className="btn btn-warning">
+                    Editar
+                  </Link>
+                  <Link className="btn btn-danger">Eliminar</Link>
                 </article>
               ) : (
                 <h2>No se encontro ningun articulo</h2>
