@@ -17,6 +17,22 @@ class Router extends Component {
 
           <Route exact path="/pg2" render={() => <h1>hh</h1>} />
           <Route exact path="/pg1" render={() => <h1>pg1</h1>} />
+
+          <Route
+            exact
+            path="/pruebas/:nombre/:apellido?"
+            render={(props) => {
+              return (
+                <div className="content">
+                  <h1>pagina pruebas</h1>
+                  Nomnre:{props.match.params.nombre}
+                  <br />
+                  Apellido:{props.match.params.apellido}
+                </div>
+              );
+            }}
+          />
+
           <Route component={Error} />
         </Switch>
       </BrowserRouter>
