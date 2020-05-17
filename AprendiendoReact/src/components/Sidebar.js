@@ -1,13 +1,18 @@
 import React, { Component } from "react";
+import { NavLink } from "react-router-dom";
 
 class Sidebar extends Component {
   render() {
     return (
       <aside id="sidebar">
-        <div className="sidebat-item" id="nav-blog">
-          <h3>Puedes hacer esto </h3>
-          <a className="btn btn-success">crear articulo</a>
-        </div>
+        {this.props.blog === "true" && (
+          <div className="sidebat-item" id="nav-blog">
+            <h3>Puedes hacer esto </h3>
+            <NavLink to="/blog/nuevo" className="btn btn-success">
+              crear articulo
+            </NavLink>
+          </div>
+        )}
         <div className="sidebat-item" id="search">
           <h3>Puedes hacer esto </h3>
           <p>encuentra el articulo que buscas</p>
