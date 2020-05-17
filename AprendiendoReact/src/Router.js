@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { BrowserRouter, Route, Switch } from "react-router-dom";
+import { BrowserRouter, Route, Switch, Redirect } from "react-router-dom";
 
 import MiComponente from "./components/MiComponente";
 import Error from "./components/Error";
@@ -28,6 +28,14 @@ class Router extends Component {
           <Route exact path="/blog" component={Blog} />
           <Route exact path="/blog/articulo/:id" component={ArticleDetails} />
           <Route exact path="/blog/busqueda/:search" component={Search} />
+          <Route
+            exact
+            path="/redirect/:search"
+            render={(props) => {
+              let search = props.match.params.search;
+              return <Redirect to={"/blog/busqueda/" + search} />;
+            }}
+          />
 
           <Route exact path="/mi-componente" component={MiComponente} />
           <Route exact path="/pg2" render={() => <h1>hh</h1>} />
