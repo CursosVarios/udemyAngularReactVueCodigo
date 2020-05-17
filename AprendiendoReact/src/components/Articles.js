@@ -10,10 +10,26 @@ class Articles extends Component {
   };
   url = Global.url;
   componentWillMount() {
-    this.getArticles();
+    if (this.props.home === "true") {
+      this.getArticlesLast();
+    } else {
+      this.getArticles();
+    }
   }
   getArticles = () => {
     Axios.get(this.url + "articles")
+      .then((res) => {
+        this.setState({
+          articles: res.data.article,
+          status: "success",
+        });
+        console.log(res.data.article);
+      })
+      .catch((err) => console.log("ERROR", err));
+  };
+
+  getArticlesLast = () => {
+    Axios.get(this.url + "articles/3")
       .then((res) => {
         this.setState({
           articles: res.data.article,
