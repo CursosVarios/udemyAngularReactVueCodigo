@@ -1,23 +1,23 @@
 import React from "react";
-
+import { NavLink } from "react-router-dom";
 const Navegation = () => {
   return (
     <nav id="menu">
       <ul>
         <li>
-          <a href="index.html">Inicio</a>
+          <NavLink to="/">Inicio</NavLink>
         </li>
         <li>
-          <a href="blog.html">Blog</a>
+          <NavLink to="/ruta-prueba">Blog</NavLink>
         </li>
         <li>
-          <a href="formulario.html">Formulario</a>
+          <NavLink to="/mi-componente">Formulario</NavLink>
         </li>
         <li>
-          <a>pagina1</a>
+          <NavLink to="/pg1">pagina1</NavLink>
         </li>
         <li>
-          <a>pagina2</a>
+          <NavLink to="/pg2">pagina2</NavLink>
         </li>
       </ul>
     </nav>

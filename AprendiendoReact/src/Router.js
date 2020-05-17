@@ -5,36 +5,52 @@ import SeccionPruebas from "./components/SeccionPruebas";
 import MiComponente from "./components/MiComponente";
 import Peliculas from "./components/Peliculas";
 import Error from "./components/Error";
+
+import Header from "./components/Header";
+import Footer from "./components/Footer";
+import Sidebar from "./components/Sidebar";
+import Slider from "./components/Slider";
 class Router extends Component {
   render() {
+    const blogString = "ir al blog";
     return (
       <BrowserRouter>
-        {/* se pondran todas las rutas */}
-        <Switch>
-          <Route exact path="/" component={Peliculas} />
-          <Route exact path="/ruta-prueba" component={SeccionPruebas} />
-          <Route exact path="/mi-componente" component={MiComponente} />
+        <Header />
+        <Slider title=" Titulo de la pagian w eb" blogString={blogString} />
 
-          <Route exact path="/pg2" render={() => <h1>hh</h1>} />
-          <Route exact path="/pg1" render={() => <h1>pg1</h1>} />
+        <div className="center">
+          {/* <Peliculas /> */}
 
-          <Route
-            exact
-            path="/pruebas/:nombre/:apellido?"
-            render={(props) => {
-              return (
-                <div className="content">
-                  <h1>pagina pruebas</h1>
-                  Nomnre:{props.match.params.nombre}
-                  <br />
-                  Apellido:{props.match.params.apellido}
-                </div>
-              );
-            }}
-          />
+          {/* se pondran todas las rutas */}
+          <Switch>
+            <Route exact path="/" component={Peliculas} />
+            <Route exact path="/ruta-prueba" component={SeccionPruebas} />
+            <Route exact path="/mi-componente" component={MiComponente} />
 
-          <Route component={Error} />
-        </Switch>
+            <Route exact path="/pg2" render={() => <h1>hh</h1>} />
+            <Route exact path="/pg1" render={() => <h1>pg1</h1>} />
+
+            <Route
+              exact
+              path="/pruebas/:nombre/:apellido?"
+              render={(props) => {
+                return (
+                  <div className="content">
+                    <h1>pagina pruebas</h1>
+                    Nomnre:{props.match.params.nombre}
+                    <br />
+                    Apellido:{props.match.params.apellido}
+                  </div>
+                );
+              }}
+            />
+
+            <Route component={Error} />
+          </Switch>
+
+          <Sidebar />
+        </div>
+        <Footer />
       </BrowserRouter>
     );
   }
