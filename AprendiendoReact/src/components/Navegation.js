@@ -5,19 +5,29 @@ const Navegation = () => {
     <nav id="menu">
       <ul>
         <li>
-          <NavLink to="/">Inicio</NavLink>
+          <NavLink to="/home" activeClassName="active">
+            Inicio
+          </NavLink>
         </li>
         <li>
-          <NavLink to="/ruta-prueba">Blog</NavLink>
+          <NavLink to="/blog" activeClassName="active">
+            Blog
+          </NavLink>
         </li>
         <li>
-          <NavLink to="/mi-componente">Formulario</NavLink>
+          <NavLink to="/Formulario" activeClassName="active">
+            Formulario
+          </NavLink>
         </li>
         <li>
-          <NavLink to="/pg1">pagina1</NavLink>
+          <NavLink to="/pg1" activeClassName="active">
+            pagina1
+          </NavLink>
         </li>
         <li>
-          <NavLink to="/pg2">pagina2</NavLink>
+          <NavLink to="/pg2" activeClassName="active">
+            pagina2
+          </NavLink>
         </li>
       </ul>
     </nav>
