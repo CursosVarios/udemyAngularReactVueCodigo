@@ -15,12 +15,12 @@ const Navegation = () => {
           </NavLink>
         </li>
         <li>
-          <NavLink to="/Formulario" activeClassName="active">
+          <NavLink to="/formulario" activeClassName="active">
             Formulario
           </NavLink>
         </li>
         <li>
-          <NavLink to="/pg1" activeClassName="active">
+          <NavLink to="/peliculas" activeClassName="active">
             pagina1
           </NavLink>
         </li>

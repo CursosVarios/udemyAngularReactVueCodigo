@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import Pelicula from "./Pelicula";
+import Slider from "./Slider";
+import Sidebar from "./Sidebar";
 
 class Peliculas extends Component {
   state = {};
@@ -102,16 +104,18 @@ class Peliculas extends Component {
 
     return (
       <React.Fragment>
-        <section id="content">
-          <h4 className="subheader"> Componente de peliculas</h4>
-          <p>
-            <input
-              type="button"
-              value="cambiarTitulo"
-              onClick={this.CambiarTitulo}
-            />
-          </p>
-          {/* {this.state.favorita ? (
+        <Slider title=" Pagina Home" blogString="Peliculas" size="slider-big" />
+        <div className="center">
+          <section id="content">
+            <h4 className="subheader"> Componente de peliculas</h4>
+            <p>
+              <input
+                type="button"
+                value="cambiarTitulo"
+                onClick={this.CambiarTitulo}
+              />
+            </p>
+            {/* {this.state.favorita ? (
             <p>
               <strong>Pelicula Favorita: </strong>
               <span>{this.state.favorita.title}</span>
@@ -121,20 +125,23 @@ class Peliculas extends Component {
               <strong>No hay una pelicula favorita</strong>
             </p>
           )} */}
-          {favorita}
-          <div id="articles" className="peliculas">
-            {this.state.peliculas.map((peli, i) => {
-              return (
-                <Pelicula
-                  key={i}
-                  pelicula={peli}
-                  marcarFavorita={this.favorita}
-                  indice={i}
-                />
-              );
-            })}
-          </div>
-        </section>
+            {favorita}
+            <div id="articles" className="peliculas">
+              {this.state.peliculas.map((peli, i) => {
+                return (
+                  <Pelicula
+                    key={i}
+                    pelicula={peli}
+                    marcarFavorita={this.favorita}
+                    indice={i}
+                  />
+                );
+              })}
+            </div>
+          </section>
+
+          <Sidebar />
+        </div>
       </React.Fragment>
     );
   }
