@@ -3,7 +3,6 @@ import { BrowserRouter, Route, Switch } from "react-router-dom";
 
 import MiComponente from "./components/MiComponente";
 import Error from "./components/Error";
-
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import Home from "./components/Home";

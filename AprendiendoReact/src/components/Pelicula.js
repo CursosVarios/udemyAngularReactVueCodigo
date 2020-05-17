@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { NavLink } from "react-router-dom";
 
 class Pelicula extends Component {
   marcar = () => {
@@ -17,7 +18,7 @@ class Pelicula extends Component {
         <h2>{title}</h2>
 
         <span className="date">{date} </span>
-        <a href="">Leer mas</a>
+        <NavLink to="/blog">Leer mas</NavLink>
         <button onClick={this.marcar}>Marcada como favorita</button>
         <div className="clearfix"></div>
       </article>
