@@ -24,7 +24,6 @@ class Article extends Component {
             />
           </div>
           <h2>{article.title}</h2>
-
           <span className="date">
             <Moment fromNow>{article.date}</Moment>
           </span>
