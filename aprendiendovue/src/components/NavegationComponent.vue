@@ -11,7 +11,9 @@
         <router-link to="/formulario">Formulario</router-link>
       </li>
       <li>
-        <router-link to="/pagina">pagina1</router-link>
+        <router-link :to="{ name: 'page', params: { id: 5 } }"
+          >pagina1</router-link
+        >
       </li>
       <li>
         <router-link to="/mi-componente">pagina2</router-link>

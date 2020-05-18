@@ -19,7 +19,7 @@ const routes = [
   { path: "/mi-componente", component: MiComponente },
   { path: "/hola-mundo", component: HelloWorld },
   { path: "/blog", component: BlogComponent },
-  { path: "/pagina", component: PaginaComponent },
+  { path: "/pagina/:id?", name: "page", component: PaginaComponent },
   { path: "/formulario", component: FormularioComponent },
   { path: "/", component: ArticleLastComponente },
 ];
