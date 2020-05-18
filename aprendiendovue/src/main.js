@@ -9,6 +9,8 @@ import BlogComponent from "./components/BlogComponent";
 import FormularioComponent from "./components/FormularioComponent";
 import PaginaComponent from "./components/PaginaComponent";
 
+import ErrorComponent from "./components/ErrorComponent";
+
 Vue.config.productionTip = false;
 
 Vue.use(VueRouter);
@@ -22,6 +24,7 @@ const routes = [
   { path: "/pagina/:id?", name: "page", component: PaginaComponent },
   { path: "/formulario", component: FormularioComponent },
   { path: "/", component: ArticleLastComponente },
+  { path: "*", component: ErrorComponent },
 ];
 
 console.log(routes);
