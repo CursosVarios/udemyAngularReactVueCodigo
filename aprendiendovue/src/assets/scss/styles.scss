@@ -87,7 +87,9 @@ body {
 .active {
   border-bottom: 1px solid $colorBase;
 }
-
+.alert-danger-provisional {
+  color: red;
+}
 #slider {
   width: 100%;
   height: 350px;
