@@ -29,6 +29,7 @@ class ArticleDetails extends Component {
 
   render() {
     const article = this.state.article;
+    console.log("articulo", article);
     return (
       <React.Fragment>
         <Slider title=" Pagina Blog" size="slider-small" />

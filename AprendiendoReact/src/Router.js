@@ -27,8 +27,8 @@ class Router extends Component {
           <Route exact path="/formulario" component={Formulario} />
           <Route exact path="/peliculas" component={Peliculas} />
           <Route exact path="/blog" component={Blog} />
-          <Route exact path="/blog/articulo/" component={ArticleDetails} />
           <Route exact path="/blog/articulo/crear" component={CreateArticle} />
+          <Route exact path="/blog/articulo/:id" component={ArticleDetails} />
           <Route exact path="/blog/busqueda/:search" component={Search} />
           <Route
             exact
