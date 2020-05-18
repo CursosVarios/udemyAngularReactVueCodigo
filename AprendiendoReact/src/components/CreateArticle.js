@@ -4,6 +4,7 @@ import Axios from "axios";
 import Global from "../Global";
 import { Redirect } from "react-router-dom";
 import SimpleReactValidator from "simple-react-validator";
+import Swal from "sweetalert2";
 
 class CreateArticle extends Component {
   url = Global.url;
@@ -32,12 +33,16 @@ class CreateArticle extends Component {
   SaveArticle = (e) => {
     e.preventDefault();
     this.ChangeState();
+
     if (!this.validator.allValid()) {
+      console.log("formulario no es valido");
       this.setState({
         status: "fail",
       });
       return;
     }
+
+    console.log("formulario es valido");
     Axios.post(`${this.url}save`, this.state.article)
       .then((res) => {
         console.log(res.data);
@@ -45,14 +50,23 @@ class CreateArticle extends Component {
           this.setState({
             article: res.data.article,
           });
-          if (this.state.selectedFile === null) {
+          if (
+            this.state.selectedFile === null ||
+            this.state.selectedFile === undefined
+          ) {
             this.setState({
               status: "success",
             });
+            Swal.fire(
+              "articulo creado",
+              "el ariculo fue creado correctamente",
+              "success"
+            );
           } else {
             const id = this.state.article._id;
             const formData = new FormData();
             console.log("ide creado id", id);
+            console.log("ide creado id", this.state.selectedFile);
             formData.append(
               "file0",
               this.state.selectedFile,
@@ -64,8 +78,15 @@ class CreateArticle extends Component {
                 this.setState({
                   article: res.data.article,
                 });
+
+                Swal.fire(
+                  "imagen cargada",
+                  "el ariculo ya fue cargada",
+                  "success"
+                );
               })
               .catch((err) => console.log(err));
+
             this.setState({
               status: "success",
             });
