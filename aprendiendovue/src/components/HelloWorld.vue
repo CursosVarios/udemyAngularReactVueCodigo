@@ -2,12 +2,10 @@
   <div class="hello" id="content">
     <h1>{{ msg }}</h1>
     <h2>{{ texto }}</h2>
-    <mi-componente />
   </div>
 </template>
 
 <script>
-import MiComponente from "./MiComponente.vue";
 export default {
   name: "HelloWorld",
   props: {
@@ -18,9 +16,7 @@ export default {
       texto: "hola mundo",
     };
   },
-  components: {
-    MiComponente,
-  },
+  components: {},
 };
 </script>
 
