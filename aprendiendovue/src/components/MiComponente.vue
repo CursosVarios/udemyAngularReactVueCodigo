@@ -1,7 +1,7 @@
 <template>
-  <div class="mi-componente">
+  <div class="mi-componente" id="content">
     <h1>titulo de mi componente</h1>
-    <h2>{{subtitulo}}</h2>
+    <h2>{{ subtitulo }}</h2>
   </div>
 </template>
 
@@ -10,11 +10,10 @@ export default {
   name: "MiComponente",
   data() {
     return {
-      subtitulo: "subtitulo componente"
+      subtitulo: "subtitulo componente",
     };
-  }
+  },
 };
 </script>
 
- <style lang="scss" scoped>
-</style>
+<style lang="scss" scoped></style>

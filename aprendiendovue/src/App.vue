@@ -4,7 +4,7 @@
     <SliderComponent></SliderComponent>
     <!-- <HelloWorld msg="Welcome to Your Vue.js App" /> -->
     <div class="center">
-      <ArticleLastComponente></ArticleLastComponente>
+      <router-view></router-view>
       <SidebarComponent></SidebarComponent>
     </div>
     <FooterComponent></FooterComponent>
@@ -15,18 +15,17 @@
 import HeaderComponent from "./components/HeaderComponent.vue";
 import SliderComponent from "./components/SliderComponent.vue";
 import SidebarComponent from "./components/SidebarComponent.vue";
-import ArticleLastComponente from "./components/ArticleLastComponente.vue";
 import FooterComponent from "./components/FooterComponent.vue";
 
 export default {
   name: "App",
   components: {
     FooterComponent,
-    ArticleLastComponente,
+
     SidebarComponent,
     SliderComponent,
-    HeaderComponent
-  }
+    HeaderComponent,
+  },
 };
 </script>
 
