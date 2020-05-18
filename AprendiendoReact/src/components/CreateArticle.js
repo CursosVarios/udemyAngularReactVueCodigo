@@ -22,7 +22,7 @@ class CreateArticle extends Component {
         content: this.contentRef.current.value,
       },
     });
-    // console.log(this.state);
+    console.log(this.state);
   };
 
   SaveArticle = (e) => {
@@ -34,8 +34,32 @@ class CreateArticle extends Component {
         if (res.data.article) {
           this.setState({
             article: res.data.article,
-            status: "success",
           });
+          if (this.state.selectedFile === null) {
+            this.setState({
+              status: "success",
+            });
+          } else {
+            const id = this.state.article._id;
+            const formData = new FormData();
+            console.log("ide creado id", id);
+            formData.append(
+              "file0",
+              this.state.selectedFile,
+              this.state.selectedFile.name
+            );
+
+            Axios.post(`${this.url}upload-image/${id}`, formData)
+              .then((res) => {
+                this.setState({
+                  article: res.data.article,
+                });
+              })
+              .catch((err) => console.log(err));
+            this.setState({
+              status: "success",
+            });
+          }
         } else {
           this.setState({
             article: null,
@@ -51,6 +75,12 @@ class CreateArticle extends Component {
           status: "fail",
         });
       });
+  };
+
+  fileChange = (e) => {
+    this.setState({
+      selectedFile: e.target.files[0],
+    });
   };
 
   render() {
@@ -85,7 +115,7 @@ class CreateArticle extends Component {
 
             <div className="form-group">
               <label htmlFor="file0">Imagen</label>
-              <input type="file" name="file0" />
+              <input type="file" name="file0" onChange={this.fileChange} />
             </div>
             <input type="submit" value="Crear" className="btn btn-success" />
           </form>
