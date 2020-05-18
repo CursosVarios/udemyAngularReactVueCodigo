@@ -24,7 +24,7 @@ class Sidebar extends Component {
         {this.props.blog === "true" && (
           <div className="sidebat-item" id="nav-blog">
             <h3>Puedes hacer esto </h3>
-            <Link to="/blog/nuevo" className="btn btn-success">
+            <Link to="/blog/articulo/crear" className="btn btn-success">
               crear articulo
             </Link>
           </div>
