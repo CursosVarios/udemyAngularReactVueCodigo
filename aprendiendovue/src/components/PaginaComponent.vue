@@ -13,9 +13,15 @@ export default {
   name: "PaginaComponent",
   mounted() {
     this.id_desde_url = this.$route.params.id;
+
+    console.log("mount");
   },
-  created() {},
-  updated() {},
+  created() {
+    console.log("create");
+  },
+  updated() {
+    console.log("update");
+  },
   destroyed() {},
   data() {
     return {
