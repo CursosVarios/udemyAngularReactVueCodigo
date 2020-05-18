@@ -92,7 +92,12 @@ class CreateArticle extends Component {
   };
 
   componentWillMount() {
-    this.validator = new SimpleReactValidator();
+    this.validator = new SimpleReactValidator({
+      messages: {
+        required: "este campo es obligatorio",
+        alpha_num_space: "solo caracteres validos (letras,numeros,espacios)",
+      },
+    });
   }
 
   render() {
