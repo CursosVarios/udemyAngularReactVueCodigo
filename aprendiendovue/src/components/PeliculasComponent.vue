@@ -3,30 +3,19 @@
   <section id="content">
     <h2 class="subheader">Peliculas</h2>
     <div id="articles">
-      <article class="article-item" v-for="pelicula in peliculas" :key="pelicula.title">
-        <div class="image-wrap">
-          <img :src="pelicula.img" alt="imagen estrellas" />
-        </div>
-        <h2>{{pelicula.title}}</h2>
-
-        <span
-          class="date"
-          v-bind:class="{
-          yeargreen:pelicula.year > 2018,
-          yearred:pelicula.year <= 2018
-        }
-        "
-        >{{pelicula.year}}</span>
-        <a href="#">leer mas</a>
-        <div class="clearfix"></div>
-      </article>
+      <peliculaComponent :pelicula="pelicula" v-for="pelicula in peliculas" :key="pelicula.title"></peliculaComponent>
+      <!-- v-for="pelicula in peliculas" :key="pelicula.title" /> -->
       <!-- agegan lo otros articulos -->
     </div>
   </section>
 </template>
 
 <script>
+import PeliculaComponent from "./PeliculaComponent.vue";
 export default {
+  components: {
+    PeliculaComponent
+  },
   name: "PeliculasComponent",
   data() {
     return {
