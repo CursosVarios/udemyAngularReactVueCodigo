@@ -80,10 +80,12 @@ body {
   text-decoration: none;
   color: #444;
   transition: 0.3s all;
+  &:hover {
+    color: $colorBase;
+  }
 }
-
-#menu a:hover {
-  color: $colorBase;
+.active {
+  border-bottom: 1px solid $colorBase;
 }
 
 #slider {
