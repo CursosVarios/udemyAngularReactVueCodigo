@@ -31,12 +31,12 @@ class ArticleDetails extends Component {
 
   deleteArticle() {
     Swal.fire({
-      title: "Are you sure?",
-      text: "You will not be able to recover this imaginary file!",
+      title: "Esta seguro?",
+      text: "no se podra recuperar el articulo",
       icon: "warning",
       showCancelButton: true,
-      confirmButtonText: "Yes, delete it!",
-      cancelButtonText: "No, keep it",
+      confirmButtonText: "si, borrar!",
+      cancelButtonText: "No, e cambiado de opinion",
     }).then((result) => {
       if (result.value) {
         const id = this.state.article._id;
