@@ -6,10 +6,14 @@ import noImage from "../assets/images/noImage.jpg";
 import Moment from "react-moment";
 import "moment/locale/es";
 import Axios from "axios";
-import { Link } from "react-router-dom";
+import { Link, Redirect } from "react-router-dom";
+import Swal from "sweetalert2";
 class ArticleDetails extends Component {
   url = Global.url;
-  state = { article: null };
+  state = {
+    article: null,
+    status: null,
+  };
   getarticle = (id) => {
     Axios.get(this.url + "article/" + id)
       .then((res) => {
@@ -25,9 +29,44 @@ class ArticleDetails extends Component {
     this.getarticle(this.props.match.params.id);
   }
 
+  deleteArticle() {
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You will not be able to recover this imaginary file!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonText: "Yes, delete it!",
+      cancelButtonText: "No, keep it",
+    }).then((result) => {
+      if (result.value) {
+        const id = this.state.article._id;
+        Axios.delete(`${this.url}article/${id}`)
+          .then((res) => {
+            console.log(res.data);
+            Swal.fire(
+              "articulo Borrado",
+              "el ariculo fue borro correctamente",
+              "success"
+            );
+            this.setState({
+              article: res.data.article,
+              status: "delete",
+            });
+          })
+          .catch((err) => {
+            console.log(err);
+          });
+      } else if (result.dismiss === Swal.DismissReason.cancel) {
+        Swal.fire("Cancelled", "Your imaginary file is safe :)", "error");
+      }
+    });
+  }
   //const article = this.props.match.params.id;
 
   render() {
+    if (this.state.status === "delete") {
+      return <Redirect to="/blog"></Redirect>;
+    }
     const article = this.state.article;
     console.log("articulo", article);
     return (
@@ -59,7 +98,14 @@ class ArticleDetails extends Component {
                   <Link to="/blog/editar/" className="btn btn-warning">
                     Editar
                   </Link>
-                  <Link className="btn btn-danger">Eliminar</Link>
+                  <button
+                    className="btn btn-danger"
+                    onClick={() => {
+                      this.deleteArticle();
+                    }}
+                  >
+                    Eliminar
+                  </button>
                 </article>
               ) : (
                 <h2>No se encontro ningun articulo</h2>
