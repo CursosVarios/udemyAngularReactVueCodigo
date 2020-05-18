@@ -2,20 +2,25 @@
   <div class="hello">
     <h1>{{ msg }}</h1>
     <h2>{{ texto }}</h2>
+    <mi-componente />
   </div>
 </template>
 
 <script>
+import MiComponente from "./MiComponente.vue";
 export default {
   name: "HelloWorld",
   props: {
-    msg: String,
+    msg: String
   },
   data() {
     return {
-      texto: "hola mundo",
+      texto: "hola mundo"
     };
   },
+  components: {
+    MiComponente
+  }
 };
 </script>
 
