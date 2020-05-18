@@ -12,6 +12,7 @@ import Peliculas from "./components/Peliculas";
 import ArticleDetails from "./components/ArticleDetails";
 import Search from "./components/Search";
 import CreateArticle from "./components/CreateArticle";
+import EditArticle from "./components/EditArticle";
 class Router extends Component {
   render() {
     return (
@@ -28,6 +29,11 @@ class Router extends Component {
           <Route exact path="/peliculas" component={Peliculas} />
           <Route exact path="/blog" component={Blog} />
           <Route exact path="/blog/articulo/crear" component={CreateArticle} />
+          <Route
+            exact
+            path="/blog/articulo/editar/:id"
+            component={EditArticle}
+          />
           <Route exact path="/blog/articulo/:id" component={ArticleDetails} />
           <Route exact path="/blog/busqueda/:search" component={Search} />
           <Route

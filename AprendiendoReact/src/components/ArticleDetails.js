@@ -95,7 +95,10 @@ class ArticleDetails extends Component {
                   </span>
                   <div className="clearfix"></div>
                   <p>{article.content}</p>
-                  <Link to="/blog/editar/" className="btn btn-warning">
+                  <Link
+                    to={"/blog/articulo/editar/" + article._id}
+                    className="btn btn-warning"
+                  >
                     Editar
                   </Link>
                   <button
