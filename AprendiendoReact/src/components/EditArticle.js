@@ -6,6 +6,8 @@ import { Redirect } from "react-router-dom";
 import SimpleReactValidator from "simple-react-validator";
 import Swal from "sweetalert2";
 
+import noImage from "../assets/images/noImage.jpg";
+
 class EditArticle extends Component {
   url = Global.url;
 
@@ -20,6 +22,7 @@ class EditArticle extends Component {
   ChangeState = () => {
     this.setState({
       article: {
+        ...this.state.article,
         title: this.titleRef.current.value,
         content: this.contentRef.current.value,
       },
@@ -30,7 +33,7 @@ class EditArticle extends Component {
     this.forceUpdate();
   };
 
-  SaveArticle = (e) => {
+  UpdateArticle = (e) => {
     e.preventDefault();
     this.ChangeState();
 
@@ -43,12 +46,15 @@ class EditArticle extends Component {
     }
 
     console.log("formulario es valido");
-    Axios.post(`${this.url}save`, this.state.article)
+    Axios.put(
+      `${this.url}article/${this.state.article._id}`,
+      this.state.article
+    )
       .then((res) => {
         console.log(res.data);
-        if (res.data.article) {
+        if (res.data.msg) {
           this.setState({
-            article: res.data.article,
+            article: res.data.msg,
           });
           if (
             this.state.selectedFile === null ||
@@ -58,7 +64,7 @@ class EditArticle extends Component {
               status: "success",
             });
             Swal.fire(
-              "articulo creado",
+              "articulo Editado",
               "el ariculo fue creado correctamente",
               "success"
             );
@@ -113,6 +119,17 @@ class EditArticle extends Component {
   };
 
   componentWillMount() {
+    const id = this.props.match.params.id;
+    Axios.get(`${this.url}article/${id}`)
+      .then((res) => {
+        console.log(res.data);
+        this.setState({
+          article: res.data.article,
+        });
+      })
+      .catch((err) => {
+        console.log(err);
+      });
     this.validator = new SimpleReactValidator({
       messages: {
         required: "este campo es obligatorio",
@@ -130,46 +147,72 @@ class EditArticle extends Component {
     return (
       <div className="center">
         <section id="content">
-          <h1 className="subheader"> Crear Articulo</h1>
-          <form action="" onSubmit={this.SaveArticle} className="mid-form">
-            <div className="form-group">
-              <label htmlFor="title">titulo</label>
-              <input
-                type="text"
-                name="title"
-                ref={this.titleRef}
-                onChange={this.ChangeState}
-              />
+          {!this.state.article ? (
+            <h1>Cargando ...</h1>
+          ) : (
+            <React.Fragment>
+              <h1 className="subheader"> Editar Articulo</h1>
+              <form
+                action=""
+                onSubmit={this.UpdateArticle}
+                className="mid-form"
+              >
+                <div className="form-group">
+                  <label htmlFor="title">titulo</label>
+                  <input
+                    type="text"
+                    name="title"
+                    ref={this.titleRef}
+                    onChange={this.ChangeState}
+                    defaultValue={this.state.article.title}
+                  />
 
-              {this.state.article &&
-                this.validator.message(
-                  "title",
-                  this.state.article.title,
-                  "required|alpha_num_space"
-                )}
-            </div>
+                  {this.state.article &&
+                    this.validator.message(
+                      "title",
+                      this.state.article.title,
+                      "required|alpha_num_space"
+                    )}
+                </div>
 
-            <div className="form-group">
-              <label htmlFor="content">Contenido</label>
-              <textarea
-                name="content"
-                ref={this.contentRef}
-                onChange={this.ChangeState}
-              ></textarea>
-              {this.state.article &&
-                this.validator.message(
-                  "content",
-                  this.state.article.content,
-                  "required"
-                )}
-            </div>
+                <div className="form-group">
+                  <label htmlFor="content">Contenido</label>
+                  <textarea
+                    name="content"
+                    ref={this.contentRef}
+                    onChange={this.ChangeState}
+                    defaultValue={this.state.article.content}
+                  ></textarea>
+                  {this.state.article &&
+                    this.validator.message(
+                      "content",
+                      this.state.article.content,
+                      "required"
+                    )}
+                </div>
 
-            <div className="form-group">
-              <label htmlFor="file0">Imagen</label>
-              <input type="file" name="file0" onChange={this.fileChange} />
-            </div>
-            <input type="submit" value="Crear" className="btn btn-success" />
-          </form>
+                <div className="form-group">
+                  <div className="image-wrap">
+                    <img
+                      src={
+                        this.state.article.image
+                          ? this.url + "get-image/" + this.state.article.image
+                          : noImage
+                      }
+                      alt="imagen estrellas"
+                    />
+                  </div>
+                  <label htmlFor="file0">Imagen</label>
+                  <input type="file" name="file0" onChange={this.fileChange} />
+                </div>
+                <input
+                  type="submit"
+                  value="Actualizar"
+                  className="btn btn-success"
+                />
+              </form>
+            </React.Fragment>
+          )}
         </section>
         <Sidebar />
       </div>
