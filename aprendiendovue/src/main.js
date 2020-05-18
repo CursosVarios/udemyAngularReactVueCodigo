@@ -10,6 +10,7 @@ import FormularioComponent from "./components/FormularioComponent";
 import PaginaComponent from "./components/PaginaComponent";
 
 import ErrorComponent from "./components/ErrorComponent";
+import PeliculasComponent from "./components/PeliculasComponent";
 
 Vue.config.productionTip = false;
 
@@ -17,6 +18,7 @@ Vue.use(VueRouter);
 
 const routes = [
   { path: "/home", component: ArticleLastComponente },
+  { path: "/peliculas", component: PeliculasComponent },
   { path: "/ultimos-articulos", component: ArticleLastComponente },
   { path: "/mi-componente", component: MiComponente },
   { path: "/hola-mundo", component: HelloWorld },
