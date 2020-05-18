@@ -7,6 +7,7 @@
       <ArticleLastComponente></ArticleLastComponente>
       <SidebarComponent></SidebarComponent>
     </div>
+    <FooterComponent></FooterComponent>
   </div>
 </template>
 
@@ -15,10 +16,12 @@ import HeaderComponent from "./components/HeaderComponent.vue";
 import SliderComponent from "./components/SliderComponent.vue";
 import SidebarComponent from "./components/SidebarComponent.vue";
 import ArticleLastComponente from "./components/ArticleLastComponente.vue";
+import FooterComponent from "./components/FooterComponent.vue";
 
 export default {
   name: "App",
   components: {
+    FooterComponent,
     ArticleLastComponente,
     SidebarComponent,
     SliderComponent,
