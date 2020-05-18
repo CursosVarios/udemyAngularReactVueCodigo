@@ -3,6 +3,7 @@ import Sidebar from "./Sidebar";
 import Axios from "axios";
 import Global from "../Global";
 import { Redirect } from "react-router-dom";
+import SimpleReactValidator from "simple-react-validator";
 
 class CreateArticle extends Component {
   url = Global.url;
@@ -23,11 +24,20 @@ class CreateArticle extends Component {
       },
     });
     console.log(this.state);
+
+    this.validator.showMessages();
+    this.forceUpdate();
   };
 
   SaveArticle = (e) => {
     e.preventDefault();
     this.ChangeState();
+    if (!this.validator.allValid()) {
+      this.setState({
+        status: "fail",
+      });
+      return;
+    }
     Axios.post(`${this.url}save`, this.state.article)
       .then((res) => {
         console.log(res.data);
@@ -62,7 +72,6 @@ class CreateArticle extends Component {
           }
         } else {
           this.setState({
-            article: null,
             status: "fail",
           });
         }
@@ -71,7 +80,6 @@ class CreateArticle extends Component {
         console.log(err);
 
         this.setState({
-          article: null,
           status: "fail",
         });
       });
@@ -82,6 +90,10 @@ class CreateArticle extends Component {
       selectedFile: e.target.files[0],
     });
   };
+
+  componentWillMount() {
+    this.validator = new SimpleReactValidator();
+  }
 
   render() {
     if (this.state.status === "success") {
@@ -102,6 +114,13 @@ class CreateArticle extends Component {
                 ref={this.titleRef}
                 onChange={this.ChangeState}
               />
+
+              {this.state.article &&
+                this.validator.message(
+                  "title",
+                  this.state.article.title,
+                  "required|alpha_num_space"
+                )}
             </div>
 
             <div className="form-group">
@@ -111,6 +130,12 @@ class CreateArticle extends Component {
                 ref={this.contentRef}
                 onChange={this.ChangeState}
               ></textarea>
+              {this.state.article &&
+                this.validator.message(
+                  "content",
+                  this.state.article.content,
+                  "required"
+                )}
             </div>
 
             <div className="form-group">
