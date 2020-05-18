@@ -6,6 +6,10 @@ body {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
     Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
 }
+img {
+  width: 100%;
+  object-fit: cover;
+}
 .clearfix {
   clear: both;
   float: none;
@@ -90,6 +94,23 @@ body {
 .alert-danger-provisional {
   color: red;
 }
+
+.yeargreen {
+  background-color: green;
+  color: white;
+  width: 112px !important;
+  text-align: center;
+  padding: 10px;
+}
+
+.yearred {
+  background-color: red;
+  color: white;
+  width: 112px !important;
+  text-align: center;
+  padding: 10px;
+}
+
 #slider {
   width: 100%;
   height: 350px;
