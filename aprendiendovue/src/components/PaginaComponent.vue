@@ -4,6 +4,7 @@
     <h3>{{ id_desde_url }}</h3>
     {{ nombre }}
     <button v-on:click="actualizarNombre()">Actualizar Nombre</button>
+    <button @click="redirigir()">redirigir</button>
   </section>
 </template>
 
@@ -25,6 +26,11 @@ export default {
   methods: {
     actualizarNombre() {
       this.nombre = "nuevo nombre asignado";
+    },
+    redirigir() {
+      this.$router.push("/blog");
+      // no es recomendable la sigient eopcion ya que no refreca l pagina
+      // this.$router.push({ name: "page", params: { id: "reder" } });
     },
   },
 };
