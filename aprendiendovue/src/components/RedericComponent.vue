@@ -6,7 +6,8 @@
 export default {
   name: "RedericComponent",
   mounted() {
-    this.$router.push("/blog/busqueda/" + this.$route.params.search);
+    const search = this.$route.params.search;
+    this.$router.push("/blog/busqueda/" + search);
   }
 };
 </script>
