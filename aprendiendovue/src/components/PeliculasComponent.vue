@@ -1,7 +1,6 @@
 
 <template>
   <div>
-    <SliderComponent></SliderComponent>
     <div class="center">
       <section id="content">
         <h2 class="subheader">Peliculas</h2>
@@ -23,10 +22,8 @@
 <script>
 import PeliculaComponent from "./PeliculaComponent.vue";
 import SidebarComponent from "./SidebarComponent.vue";
-import SliderComponent from "./SliderComponent.vue";
 export default {
   components: {
-    SliderComponent,
     SidebarComponent,
     PeliculaComponent
   },

@@ -1,6 +1,5 @@
 <template>
   <div>
-    <SliderComponent></SliderComponent>
     <div class="center">
       <section id="content">
         <h2 class="subheader">Formulario</h2>
@@ -11,12 +10,10 @@
 </template>
 
 <script>
-import SliderComponent from "./SliderComponent.vue";
 import SidebarComponent from "./SidebarComponent.vue";
 export default {
   components: {
-    SidebarComponent,
-    SliderComponent
+    SidebarComponent
   },
   name: "FormularioComponent"
 };
