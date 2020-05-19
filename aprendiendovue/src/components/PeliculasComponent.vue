@@ -4,11 +4,16 @@
     <div class="center">
       <section id="content">
         <h2 class="subheader">Peliculas</h2>
+        <div v-if="datos">
+          <!-- {{datos}} -->
+          <p v-html="datos"></p>
+          {{nombre|mayusculas |concatenarYear}}
+        </div>
         <div class="favorita" v-if="favorita">{{favorita}}</div>
         <div id="articles">
           <peliculaComponent
             :pelicula="pelicula"
-            v-for="pelicula in peliculas"
+            v-for="pelicula in PeliculasMayusculas"
             :key="pelicula.title"
             @favorita="SelecionaFavorita"
           ></peliculaComponent>
@@ -25,6 +30,7 @@
 import PeliculaComponent from "./PeliculaComponent.vue";
 import SidebarComponent from "./SidebarComponent.vue";
 export default {
+  name: "PeliculasComponent",
   components: {
     SidebarComponent,
     PeliculaComponent
@@ -35,10 +41,32 @@ export default {
       this.favorita = p.title;
     }
   },
-  name: "PeliculasComponent",
+  computed: {
+    PeliculasMayusculas() {
+      let peliculasMod = this.peliculas;
+      peliculasMod.map(pe => {
+        pe.title = pe.title.toUpperCase();
+        return pe;
+      });
+      return peliculasMod;
+    },
+    datos() {
+      return "mario f <br/> dsadas";
+    }
+  },
+  filters: {
+    mayusculas(value) {
+      return value.toUpperCase();
+    },
+    concatenarYear(value) {
+      const date = new Date();
+      return value + " " + date.getFullYear();
+    }
+  },
   data() {
     return {
       favorita: null,
+      nombre: "prueba pagina web",
       peliculas: [
         {
           title: "Batman vs superman",
