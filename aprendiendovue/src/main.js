@@ -17,7 +17,11 @@ Vue.config.productionTip = false;
 
 Vue.use(VueRouter);
 Vue.use(vuelidate);
-Vue.use(require("vue-moment"));
+const moment = require("moment");
+require("moment/locale/es");
+Vue.use(require("vue-moment"), {
+  moment,
+});
 
 const routes = [
   { path: "/home", component: ArticleLastComponente },
