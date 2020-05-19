@@ -2,6 +2,9 @@ import Vue from "vue";
 import App from "./App.vue";
 import VueRouter from "vue-router";
 import vuelidate from "vuelidate";
+import VueMoment from "vue-moment";
+import moment from "moment";
+import "moment/locale/es";
 
 import ArticleLastComponente from "./components/ArticleLastComponente";
 import MiComponente from "./components/MiComponente";
@@ -17,12 +20,11 @@ Vue.config.productionTip = false;
 
 Vue.use(VueRouter);
 Vue.use(vuelidate);
-const moment = require("moment");
-require("moment/locale/es");
-Vue.use(require("vue-moment"), {
+
+Vue.use(VueMoment, {
   moment,
 });
-
+VueMoment;
 const routes = [
   { path: "/home", component: ArticleLastComponente },
   { path: "/peliculas", component: PeliculasComponent },
