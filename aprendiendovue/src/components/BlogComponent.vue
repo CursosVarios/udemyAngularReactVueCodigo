@@ -5,21 +5,7 @@
       <section id="content">
         <h2 class="subheader">Blog</h2>
         <div id="articles">
-          <article class="article-item" v-for="article in articles" :key="article._id">
-            <div class="image-wrap">
-              <img
-                :src="url+'get-image/'+article.image"
-                alt="imagen estrellas"
-                v-if="article.image"
-              />
-              <img src="../assets/image/no-image.jpg" alt="imagen estrellas" v-if="!article.image" />
-            </div>
-            <h2>{{article.title}}</h2>
-
-            <span class="date">{{article.date}}</span>
-            <router-link to="'/blog/article'+article._id">leer mas</router-link>
-            <div class="clearfix"></div>
-          </article>
+          <ArticleComponent :article="article" v-for="article in articles" :key="article._id"></ArticleComponent>
           <!-- agegan lo otros articulos -->
         </div>
       </section>
@@ -32,9 +18,11 @@
 import axios from "axios";
 import SidebarComponent from "./SidebarComponent.vue";
 import SliderComponent from "./SliderComponent.vue";
+import ArticleComponent from "./ArticleComponent.vue";
 export default {
   name: "BlogComponent",
   components: {
+    ArticleComponent,
     SliderComponent,
     SidebarComponent
   },
