@@ -15,6 +15,7 @@ import PaginaComponent from "./components/PaginaComponent";
 
 import ErrorComponent from "./components/ErrorComponent";
 import PeliculasComponent from "./components/PeliculasComponent";
+import SearchComponent from "./components/SearchComponent";
 
 Vue.config.productionTip = false;
 
@@ -32,6 +33,9 @@ const routes = [
   { path: "/mi-componente", component: MiComponente },
   { path: "/hola-mundo", component: HelloWorld },
   { path: "/blog", component: BlogComponent },
+  { path: "/blog/busqueda", component: SearchComponent },
+  { path: "/blog/nuevo", component: BlogComponent },
+  { path: "/blog/articulo/:id", component: BlogComponent },
   { path: "/pagina/:id?", name: "page", component: PaginaComponent },
   { path: "/formulario", component: FormularioComponent },
   { path: "/", component: ArticleLastComponente },

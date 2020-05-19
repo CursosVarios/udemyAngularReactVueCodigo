@@ -9,7 +9,7 @@
       </div>
       <h2>{{article.title}}</h2>
       <span class="date">{{article.date | moment('from','now') }}</span>
-      <router-link to="'/blog/article'+article._id">leer mas</router-link>
+      <router-link :to="'/blog/articulo/'+article._id">leer mas</router-link>
       <div class="clearfix"></div>
     </article>
 
