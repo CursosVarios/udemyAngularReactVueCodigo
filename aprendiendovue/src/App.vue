@@ -1,20 +1,15 @@
 <template>
   <div id="app">
     <HeaderComponent></HeaderComponent>
-    <SliderComponent></SliderComponent>
     <!-- <HelloWorld msg="Welcome to Your Vue.js App" /> -->
-    <div class="center">
-      <router-view></router-view>
-      <SidebarComponent></SidebarComponent>
-    </div>
+
+    <router-view></router-view>
     <FooterComponent></FooterComponent>
   </div>
 </template>
 
 <script>
 import HeaderComponent from "./components/HeaderComponent.vue";
-import SliderComponent from "./components/SliderComponent.vue";
-import SidebarComponent from "./components/SidebarComponent.vue";
 import FooterComponent from "./components/FooterComponent.vue";
 
 export default {
@@ -22,10 +17,8 @@ export default {
   components: {
     FooterComponent,
 
-    SidebarComponent,
-    SliderComponent,
-    HeaderComponent,
-  },
+    HeaderComponent
+  }
 };
 </script>
 

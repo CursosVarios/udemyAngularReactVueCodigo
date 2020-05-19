@@ -1,15 +1,27 @@
 <template>
-  <section id="content">
-    <h2 class="subheader">Pagina pruebas</h2>
-    <h3>{{ id_desde_url }}</h3>
-    {{ nombre }}
-    <button v-on:click="actualizarNombre()">Actualizar Nombre</button>
-    <button @click="redirigir()">redirigir</button>
-  </section>
+  <div>
+    <SliderComponent></SliderComponent>
+    <div class="center">
+      <section id="content">
+        <h2 class="subheader">Pagina pruebas</h2>
+        <h3>{{ id_desde_url }}</h3>
+        {{ nombre }}
+        <button v-on:click="actualizarNombre()">Actualizar Nombre</button>
+        <button @click="redirigir()">redirigir</button>
+      </section>
+      <SidebarComponent></SidebarComponent>
+    </div>
+  </div>
 </template>
 
 <script>
+import SliderComponent from "./SliderComponent.vue";
+import SidebarComponent from "./SidebarComponent.vue";
 export default {
+  components: {
+    SidebarComponent,
+    SliderComponent
+  },
   name: "PaginaComponent",
   mounted() {
     this.id_desde_url = this.$route.params.id;
@@ -26,7 +38,7 @@ export default {
   data() {
     return {
       id_desde_url: null,
-      nombre: "nombre 1",
+      nombre: "nombre 1"
     };
   },
   methods: {
@@ -37,8 +49,8 @@ export default {
       this.$router.push("/blog");
       // no es recomendable la sigient eopcion ya que no refreca l pagina
       // this.$router.push({ name: "page", params: { id: "reder" } });
-    },
-  },
+    }
+  }
 };
 </script>
 

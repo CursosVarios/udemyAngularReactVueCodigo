@@ -1,12 +1,24 @@
 <template>
-  <section id="content">
-    <h2 class="subheader">Blog</h2>
-  </section>
+  <div>
+    <SliderComponent></SliderComponent>
+    <div class="center">
+      <section id="content">
+        <h2 class="subheader">Blog</h2>
+      </section>
+      <SidebarComponent></SidebarComponent>
+    </div>
+  </div>
 </template>
 
 <script>
+import SidebarComponent from "./SidebarComponent.vue";
+import SliderComponent from "./SliderComponent.vue";
 export default {
-  name: "BlogComponent",
+  components: {
+    SliderComponent,
+    SidebarComponent
+  },
+  name: "BlogComponent"
 };
 </script>
 
