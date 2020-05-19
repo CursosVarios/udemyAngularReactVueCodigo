@@ -7,7 +7,9 @@
         <img :src="url+'get-image/'+article.image" alt="imagen estrellas" v-if="article.image" />
         <img src="../assets/image/no-image.jpg" alt="imagen estrellas" v-if="!article.image" />
       </div>
-      <h2>{{article.title}}</h2>
+      <h2>
+        <router-link :to="'/blog/articulo/'+article._id">{{article.title}}</router-link>
+      </h2>
       <span class="date">{{article.date | moment('from','now') }}</span>
       <router-link :to="'/blog/articulo/'+article._id">leer mas</router-link>
       <div class="clearfix"></div>
