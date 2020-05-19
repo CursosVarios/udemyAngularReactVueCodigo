@@ -4,10 +4,9 @@
     <div class="center">
       <section id="content">
         <h2 class="subheader">Blog</h2>
-        <div id="articles">
-          <ArticleComponent :article="article" v-for="article in articles" :key="article._id"></ArticleComponent>
-          <!-- agegan lo otros articulos -->
-        </div>
+
+        <ArticleComponent :articles="articles"></ArticleComponent>
+        <!-- agegan lo otros articulos -->
       </section>
       <SidebarComponent></SidebarComponent>
     </div>

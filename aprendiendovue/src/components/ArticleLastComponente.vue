@@ -5,22 +5,8 @@
     <div class="center">
       <section id="content">
         <h2 class="subheader">Ultimos articulos</h2>
-        <div id="articles">
-          <article class="article-item" id="article-template">
-            <div class="image-wrap">
-              <img
-                src="https://images.unsplash.com/photo-1588894181387-939771976bdd?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=306&q=80"
-                alt="imagen estrellas"
-              />
-            </div>
-            <h2>articulo de prueba</h2>
 
-            <span class="date">Hace 5 minutos</span>
-            <a href="#">leer mas</a>
-            <div class="clearfix"></div>
-          </article>
-          <!-- agegan lo otros articulos -->
-        </div>
+        <ArticleComponent :articles="articles"></ArticleComponent>
       </section>
       <SidebarComponent></SidebarComponent>
     </div>
@@ -30,12 +16,34 @@
 <script>
 import SliderComponent from "./SliderComponent.vue";
 import SidebarComponent from "./SidebarComponent.vue";
+import Axios from "axios";
+import Global from "../Global";
+import ArticleComponent from "./ArticleComponent.vue";
 export default {
+  name: "ArticleLastComponente",
   components: {
+    ArticleComponent,
     SidebarComponent,
     SliderComponent
   },
-  name: "ArticleLastComponente"
+  data() {
+    return {
+      articles: []
+    };
+  },
+  mounted() {
+    this.getArticle();
+  },
+  methods: {
+    getArticle() {
+      Axios.get(Global.url + "articles/5")
+        .then(res => {
+          console.log(res.data.article);
+          this.articles = res.data.article;
+        })
+        .catch(err => console.log(err));
+    }
+  }
 };
 </script>
 
