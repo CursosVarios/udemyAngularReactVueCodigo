@@ -18,6 +18,7 @@ import PeliculasComponent from "./components/PeliculasComponent";
 import SearchComponent from "./components/SearchComponent";
 import RedericComponent from "./components/RedericComponent";
 import ArticleDetailsComponent from "./components/ArticleDetailsComponent";
+import ArticleCreateComponent from "./components/ArticleCreateComponent";
 
 Vue.config.productionTip = false;
 
@@ -35,9 +36,9 @@ const routes = [
   { path: "/mi-componente", component: MiComponente },
   { path: "/hola-mundo", component: HelloWorld },
   { path: "/blog", component: BlogComponent },
+  { path: "/blog/nuevo", component: ArticleCreateComponent },
   { path: "/blog/busqueda/:search", component: SearchComponent },
   { path: "/blog/rederic/:search", component: RedericComponent },
-  { path: "/blog/nuevo", component: BlogComponent },
   { path: "/blog/editar/:id", component: BlogComponent },
   { path: "/blog/articulo/:id", component: ArticleDetailsComponent },
   { path: "/pagina/:id?", name: "page", component: PaginaComponent },
