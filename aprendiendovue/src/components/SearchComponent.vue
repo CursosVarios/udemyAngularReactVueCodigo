@@ -1,11 +1,12 @@
 <template>
   <div>
-    <SliderComponent texto="Search"></SliderComponent>
+    <SliderComponent :texto="'Busqueda : '+search"></SliderComponent>
     <div class="center">
       <section id="content">
-        <h2 class="subheader">Blog</h2>
+        <h2 class="subheader" v-if="articles">Articulos encontrados</h2>
+        <h2 class="subheader" v-else>Sin Resultados</h2>
 
-        <ArticleComponent :articles="articles"></ArticleComponent>
+        <ArticleComponent :articles="articles" v-if="articles"></ArticleComponent>
         <!-- agegan lo otros articulos -->
       </section>
       <SidebarComponent></SidebarComponent>
@@ -28,20 +29,23 @@ export default {
   },
   data() {
     return {
-      articles: []
+      articles: null,
+      search: ""
     };
   },
   mounted() {
-    this.getArticle();
+    this.search = this.$route.params.search;
+    this.getArticleBySearch();
   },
   computed: {},
   methods: {
-    getArticle() {
+    getArticleBySearch() {
+      console.log(Global.url + "search/" + this.search);
       axios
-        .get(Global.url + "search/")
+        .get(Global.url + "search/" + this.search)
         .then(res => {
-          console.log(res.data.article);
-          this.articles = res.data.article;
+          console.log(res.data.art);
+          this.articles = res.data.art;
         })
         .catch(err => console.log(err));
     }
