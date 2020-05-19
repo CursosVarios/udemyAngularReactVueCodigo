@@ -18,7 +18,7 @@
           </div>
           <div class="form-group">
             <label for="file0">img</label>
-            <input type="file" name="file0" />
+            <input type="file" name="file0" ref="file" @change="FileChange()" />
           </div>
           <div class="clearfix"></div>
           <input type="submit" value="Crear" class="btn btn-success" />
@@ -45,10 +45,15 @@ export default {
   data() {
     return {
       submitted: false,
-      article: new ArticleModel("", "", "", "")
+      article: new ArticleModel("", "", "", ""),
+      file: ""
     };
   },
   methods: {
+    FileChange() {
+      this.file = this.$refs.file.files[0];
+      console.log(this.file);
+    },
     CrearArticulo() {
       this.submitted = true;
       this.$v.$touch();
@@ -61,15 +66,29 @@ export default {
       Axios.post(Global.url + "save", this.article)
         .then(res => {
           console.log(res.data.article);
-          this.$router.push("/blog/articulo/" + res.data.article._id);
+          const id = res.data.article._id;
+          if (!this.file) {
+            this.$router.push("/blog/articulo/" + id);
+          }
+          let formData = new FormData();
+          formData.append("file0", this.file, this.file.name);
+
+          Axios.post(Global.url + "upload-image/" + id, formData)
+            .then(res => {
+              console.log(res.data);
+              console.log(" se cargo la imagen correctamente");
+            })
+            .catch(err => console.log("err1" + err));
+
+          this.$router.push("/blog/articulo/" + id);
         })
-        .catch(err => console.log(err));
+        .catch(err => console.log("err0" + err));
     }
   },
   validations: {
     article: {
-      title: { required, minLength: minLength(5) },
-      content: { required, minLength: minLength(10) }
+      title: { required, minLength: minLength(4) },
+      content: { required, minLength: minLength(5) }
     }
   }
 };
