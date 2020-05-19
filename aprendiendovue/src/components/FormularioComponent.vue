@@ -54,7 +54,7 @@ export default {
   },
   data() {
     return {
-      submitted: true,
+      submitted: false,
       user: {
         nombre: "",
         apellido: "",
