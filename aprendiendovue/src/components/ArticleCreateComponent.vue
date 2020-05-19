@@ -3,7 +3,7 @@
     <SliderComponent texto="Crear articulo"></SliderComponent>
     <div class="center">
       <section id="content">
-        <form action @submit="CrearArticulo" class="mid-form">
+        <form action @submit.prevent="CrearArticulo()" class="mid-form">
           <div class="form-group">
             <label for="title">title</label>
             <input type="text" name="title" v-model="article.title" />
@@ -21,7 +21,7 @@
             <input type="file" name="file0" />
           </div>
           <div class="clearfix"></div>
-          <input type="button" value="Crear" class="btn btn-success" />
+          <input type="submit" value="Crear" class="btn btn-success" />
         </form>
       </section>
       <SidebarComponent></SidebarComponent>
@@ -32,10 +32,10 @@
 <script>
 import SliderComponent from "./SliderComponent.vue";
 import SidebarComponent from "./SidebarComponent.vue";
-import Axios from "axios";
 import Global from "../Global";
 import { required, minLength } from "vuelidate/lib/validators";
 import ArticleModel from "../models/ArticleModel";
+import Axios from "axios";
 export default {
   name: "ArticleCreateComponent",
   components: {
@@ -44,16 +44,24 @@ export default {
   },
   data() {
     return {
-      submitted: true,
+      submitted: false,
       article: new ArticleModel("", "", "", "")
     };
   },
   methods: {
     CrearArticulo() {
-      ArticleModel;
-      Axios.post(Global.url + "")
+      this.submitted = true;
+      this.$v.$touch();
+      if (this.$v.$invalid) {
+        console.log("VAlidar el formulario");
+        return false;
+      }
+
+      console.log(this.article);
+      Axios.post(Global.url + "save", this.article)
         .then(res => {
-          console.log(res.data);
+          console.log(res.data.article);
+          this.$router.push("/blog/articulo/" + res.data.article._id);
         })
         .catch(err => console.log(err));
     }
