@@ -8,14 +8,14 @@
         <img src="../assets/image/no-image.jpg" alt="imagen estrellas" v-if="!article.image" />
       </div>
       <h2>{{article.title}}</h2>
-      <span class="date">{{article.date}}</span>
+      <span class="date">{{article.date | moment('from','now') }}</span>
       <router-link to="'/blog/article'+article._id">leer mas</router-link>
       <div class="clearfix"></div>
     </article>
 
     <div v-if="articles && articles.length===0">No hay articulos para mostart</div>
   </div>
-</template>
+</template> 
 
 <script>
 import Global from "../Global";

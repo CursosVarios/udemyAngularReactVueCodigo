@@ -17,6 +17,7 @@ Vue.config.productionTip = false;
 
 Vue.use(VueRouter);
 Vue.use(vuelidate);
+Vue.use(require("vue-moment"));
 
 const routes = [
   { path: "/home", component: ArticleLastComponente },
