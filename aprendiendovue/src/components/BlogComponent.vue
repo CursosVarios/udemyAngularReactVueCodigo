@@ -4,6 +4,24 @@
     <div class="center">
       <section id="content">
         <h2 class="subheader">Blog</h2>
+        <div id="articles">
+          <article class="article-item" v-for="article in articles" :key="article._id">
+            <div class="image-wrap">
+              <img
+                :src="url+'get-image/'+article.image"
+                alt="imagen estrellas"
+                v-if="article.image"
+              />
+              <img src="../assets/image/no-image.jpg" alt="imagen estrellas" v-if="!article.image" />
+            </div>
+            <h2>{{article.title}}</h2>
+
+            <span class="date">{{article.date}}</span>
+            <router-link to="'/blog/article'+article._id">leer mas</router-link>
+            <div class="clearfix"></div>
+          </article>
+          <!-- agegan lo otros articulos -->
+        </div>
       </section>
       <SidebarComponent></SidebarComponent>
     </div>
@@ -22,19 +40,21 @@ export default {
   },
   data() {
     return {
-      articles: []
+      articles: [],
+      url: "http://localhost:8080/api/",
+      keyarticle: 0
     };
   },
   mounted() {
     this.getArticle();
   },
+  computed: {},
   methods: {
     getArticle() {
-      const url = "http://localhost:8080/api/";
       axios
-        .get(url + "articles")
+        .get(this.url + "articles")
         .then(res => {
-          console.log(res);
+          console.log(res.data.article);
           this.articles = res.data.article;
         })
         .catch(err => console.log(err));
