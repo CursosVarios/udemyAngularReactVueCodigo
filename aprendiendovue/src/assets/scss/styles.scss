@@ -252,6 +252,22 @@ img {
   }
 }
 
+.btn-warning {
+  background-color: rgb(168, 166, 6);
+  transition: 0.3s background;
+  &:hover {
+    background-color: black;
+  }
+}
+
+.btn-alert {
+  background-color: rgb(158, 0, 0);
+  transition: 0.3s background;
+  &:hover {
+    background-color: black;
+  }
+}
+
 input[type="text"],
 textarea {
   width: 100%;
