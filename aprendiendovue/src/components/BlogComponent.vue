@@ -11,14 +11,35 @@
 </template>
 
 <script>
+import axios from "axios";
 import SidebarComponent from "./SidebarComponent.vue";
 import SliderComponent from "./SliderComponent.vue";
 export default {
+  name: "BlogComponent",
   components: {
     SliderComponent,
     SidebarComponent
   },
-  name: "BlogComponent"
+  data() {
+    return {
+      articles: []
+    };
+  },
+  mounted() {
+    this.getArticle();
+  },
+  methods: {
+    getArticle() {
+      const url = "http://localhost:8080/api/";
+      axios
+        .get(url + "articles")
+        .then(res => {
+          console.log(res);
+          this.articles = res.data.article;
+        })
+        .catch(err => console.log(err));
+    }
+  }
 };
 </script>
 
