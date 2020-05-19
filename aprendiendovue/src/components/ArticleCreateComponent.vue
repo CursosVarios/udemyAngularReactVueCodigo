@@ -7,6 +7,7 @@ import Global from "../Global";
 import { required, minLength } from "vuelidate/lib/validators";
 import ArticleModel from "../models/ArticleModel";
 import Axios from "axios";
+import swal from "sweetalert2";
 export default {
   name: "ArticleCreateComponent",
   components: {
@@ -39,6 +40,7 @@ export default {
           console.log(res.data.article);
           const id = res.data.article._id;
           if (!this.file) {
+            swal.fire("articulo creado", "se creo articulo", "success");
             this.$router.push("/blog/articulo/" + id);
           }
           let formData = new FormData();
@@ -47,11 +49,23 @@ export default {
           Axios.post(Global.url + "upload-image/" + id, formData)
             .then(res => {
               console.log(res.data);
+
+              swal
+                .fire(
+                  "articulo creado",
+                  "se creo articulo con imagen",
+                  "success"
+                )
+                .then(() => {
+                  this.$router.push("/blog/articulo/" + id);
+                });
               console.log(" se cargo la imagen correctamente");
             })
-            .catch(err => console.log("err1" + err));
+            .catch(err => {
+              console.log("err1" + err);
 
-          this.$router.push("/blog/articulo/" + id);
+              this.$router.push("/blog/articulo/" + id);
+            });
         })
         .catch(err => console.log("err0" + err));
     }
