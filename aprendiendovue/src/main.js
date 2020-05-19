@@ -16,6 +16,7 @@ import PaginaComponent from "./components/PaginaComponent";
 import ErrorComponent from "./components/ErrorComponent";
 import PeliculasComponent from "./components/PeliculasComponent";
 import SearchComponent from "./components/SearchComponent";
+import RedericComponent from "./components/RedericComponent";
 
 Vue.config.productionTip = false;
 
@@ -34,6 +35,7 @@ const routes = [
   { path: "/hola-mundo", component: HelloWorld },
   { path: "/blog", component: BlogComponent },
   { path: "/blog/busqueda/:search", component: SearchComponent },
+  { path: "/blog/rederic/:search", component: RedericComponent },
   { path: "/blog/nuevo", component: BlogComponent },
   { path: "/blog/articulo/:id", component: BlogComponent },
   { path: "/pagina/:id?", name: "page", component: PaginaComponent },

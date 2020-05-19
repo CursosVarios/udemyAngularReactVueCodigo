@@ -7,8 +7,8 @@
     <div class="sidebat-item" id="search">
       <h3>Puedes hacer esto</h3>
       <p>encuentra el articulo que buscas</p>
-      <form action="#">
-        <input type="text" name="search" />
+      <form action="#" @submit.prevent="gosearch">
+        <input type="text" name="search" v-model="searchString" />
         <input type="submit" name="submit" value="buscar" class="btn" />
       </form>
     </div>
@@ -17,7 +17,21 @@
 
 <script>
 export default {
-  name: "SidebarComponent"
+  name: "SidebarComponent",
+  data() {
+    return {
+      searchString: null
+    };
+  },
+  methods: {
+    gosearch() {
+      if (!this.searchString) {
+        return;
+      }
+      console.log(this.searchString);
+      this.$router.push("/blog/rederic/" + this.searchString);
+    }
+  }
 };
 </script>
 
