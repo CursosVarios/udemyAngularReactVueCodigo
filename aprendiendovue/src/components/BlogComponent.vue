@@ -1,6 +1,6 @@
 <template>
   <div>
-    <SliderComponent></SliderComponent>
+    <SliderComponent texto="Blog"></SliderComponent>
     <div class="center">
       <section id="content">
         <h2 class="subheader">Blog</h2>

@@ -1,7 +1,7 @@
 
 <template>
   <div>
-    <SliderComponent></SliderComponent>
+    <SliderComponent texto="Pagina principal"></SliderComponent>
     <div class="center">
       <section id="content">
         <h2 class="subheader">Ultimos articulos</h2>

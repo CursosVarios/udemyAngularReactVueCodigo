@@ -1,6 +1,6 @@
 <template>
   <div>
-    <SliderComponent></SliderComponent>
+    <SliderComponent texto="Mi componente"></SliderComponent>
     <div class="center">
       <div class="mi-componente" id="content">
         <h1>titulo de mi componente</h1>
@@ -9,8 +9,8 @@
         <h2>reactividad</h2>
         <input type="text" v-model="datoDeInput" />
         <pre>
-      {{ $data }}
-      </pre>
+          {{ $data }}
+        </pre>
         {{ datoDeInput }}
         <h2>directivas</h2>
         <input type="number" v-model="edad" />

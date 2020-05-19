@@ -2,15 +2,21 @@
   <div>
     <div class="clearfix"></div>
 
-    <div class="slider-big" id="slider">
-      <h1>Titulo de la pagian w eb</h1>
-      <a href="#" class="btn-white">ir al blog</a>
+    <div :class="{
+      'slider-big': showBtn,
+      'slider-small':!showBtn 
+    }" id="slider">
+      <h1>{{texto}}</h1>
+      <router-link to="/blog" class="btn-white" v-if="showBtn">ir al blog</router-link>
     </div>
   </div>
 </template>
 
 <script>
-export default { name: "SliderComponent" };
+export default {
+  name: "SliderComponent",
+  props: ["texto", "showBtn"]
+};
 </script>
 
 <style>
