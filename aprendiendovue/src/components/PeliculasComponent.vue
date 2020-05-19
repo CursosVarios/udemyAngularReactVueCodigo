@@ -4,11 +4,13 @@
     <div class="center">
       <section id="content">
         <h2 class="subheader">Peliculas</h2>
+        <div class="favorita" v-if="favorita">{{favorita}}</div>
         <div id="articles">
           <peliculaComponent
             :pelicula="pelicula"
             v-for="pelicula in peliculas"
             :key="pelicula.title"
+            @favorita="SelecionaFavorita"
           ></peliculaComponent>
           <!-- v-for="pelicula in peliculas" :key="pelicula.title" /> -->
           <!-- agegan lo otros articulos -->
@@ -27,9 +29,16 @@ export default {
     SidebarComponent,
     PeliculaComponent
   },
+  methods: {
+    SelecionaFavorita(p) {
+      console.log("pelicual en el padre", p);
+      this.favorita = p.title;
+    }
+  },
   name: "PeliculasComponent",
   data() {
     return {
+      favorita: null,
       peliculas: [
         {
           title: "Batman vs superman",

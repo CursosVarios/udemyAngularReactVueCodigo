@@ -14,6 +14,7 @@
         "
     >{{pelicula.year}}</span>
     <a href="#">leer mas</a>
+    <input type="button" value="Favorita" @click="SelecionarFavorita(pelicula)" />
     <div class="clearfix"></div>
   </article>
 </template>
@@ -21,7 +22,13 @@
 <script>
 export default {
   name: "peliculaComponent",
-  props: ["pelicula"]
+  props: ["pelicula"],
+  methods: {
+    SelecionarFavorita(p) {
+      console.log(p);
+      this.$emit("favorita", p);
+    }
+  }
 };
 </script>
 
