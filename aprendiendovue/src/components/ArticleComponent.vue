@@ -13,12 +13,13 @@
 </template>
 
 <script>
+import Global from "../Global";
 export default {
   name: "ArticleComponent",
   props: ["article"],
   data() {
     return {
-      url: "http://localhost:8080/api/"
+      url: Global.url
     };
   }
 };

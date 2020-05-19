@@ -19,6 +19,7 @@ import axios from "axios";
 import SidebarComponent from "./SidebarComponent.vue";
 import SliderComponent from "./SliderComponent.vue";
 import ArticleComponent from "./ArticleComponent.vue";
+import Global from "../Global";
 export default {
   name: "BlogComponent",
   components: {
@@ -28,9 +29,7 @@ export default {
   },
   data() {
     return {
-      articles: [],
-      url: "http://localhost:8080/api/",
-      keyarticle: 0
+      articles: []
     };
   },
   mounted() {
@@ -40,7 +39,7 @@ export default {
   methods: {
     getArticle() {
       axios
-        .get(this.url + "articles")
+        .get(Global.url + "articles")
         .then(res => {
           console.log(res.data.article);
           this.articles = res.data.article;
