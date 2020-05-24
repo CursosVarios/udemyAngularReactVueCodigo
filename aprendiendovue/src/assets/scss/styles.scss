@@ -9,6 +9,9 @@ body {
 img {
   width: 100%;
   object-fit: cover;
+  &.image-small {
+    width: 150px;
+  }
 }
 .clearfix {
   clear: both;

@@ -21,10 +21,24 @@ export default {
       submitted: false,
       article: new ArticleModel("", "", "", ""),
       file: "",
-      isEdit: true
+      isEdit: true,
+      url: Global.url
     };
   },
+  mounted() {
+    const id = this.$route.params.id;
+    console.log(id);
+    this.getArticleDetails(id);
+  },
   methods: {
+    getArticleDetails(id) {
+      Axios.get(this.url + "article/" + id)
+        .then(res => {
+          console.log(res.data);
+          this.article = res.data.article;
+        })
+        .catch(err => console.log(err));
+    },
     FileChange() {
       this.file = this.$refs.file.files[0];
       console.log(this.file);
@@ -37,13 +51,18 @@ export default {
         return false;
       }
 
-      console.log(this.article);
-      Axios.post(Global.url + "save", this.article)
+      //console.log(this.article);
+      Axios.put(Global.url + "article/" + this.article._id, this.article)
         .then(res => {
-          console.log(res.data.article);
-          const id = res.data.article._id;
+          console.log("llega ");
+          console.log(res.data);
+          const id = res.data.msg._id;
           if (!this.file) {
-            swal.fire("articulo creado", "se creo articulo", "success");
+            swal.fire(
+              "articulo Actualizado ",
+              "se Actualizo articulo",
+              "success"
+            );
             this.$router.push("/blog/articulo/" + id);
           }
           let formData = new FormData();
@@ -55,8 +74,8 @@ export default {
 
               swal
                 .fire(
-                  "articulo creado",
-                  "se creo articulo con imagen",
+                  "articulo Actualizado",
+                  "se Actualizo articulo con imagen",
                   "success"
                 )
                 .then(() => {
