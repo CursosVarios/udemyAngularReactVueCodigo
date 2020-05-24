@@ -19,6 +19,7 @@ import SearchComponent from "./components/SearchComponent";
 import RedericComponent from "./components/RedericComponent";
 import ArticleDetailsComponent from "./components/ArticleDetailsComponent";
 import ArticleCreateComponent from "./components/ArticleCreateComponent";
+import ArticleEditComponent from "./components/ArticleEditComponent";
 
 Vue.config.productionTip = false;
 
@@ -39,7 +40,7 @@ const routes = [
   { path: "/blog/nuevo", component: ArticleCreateComponent },
   { path: "/blog/busqueda/:search", component: SearchComponent },
   { path: "/blog/rederic/:search", component: RedericComponent },
-  { path: "/blog/editar/:id", component: BlogComponent },
+  { path: "/blog/editar/:id", component: ArticleEditComponent },
   { path: "/blog/articulo/:id", component: ArticleDetailsComponent },
   { path: "/pagina/:id?", name: "page", component: PaginaComponent },
   { path: "/formulario", component: FormularioComponent },
