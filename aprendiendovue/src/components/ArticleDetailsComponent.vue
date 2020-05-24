@@ -14,7 +14,7 @@
           <div class="clearfix"></div>
           <p>{{article.content}}</p>
           <router-link class="btn btn-warning" :to="'/blog/editar/'+article._id">Editar</router-link>
-          <button class="btn btn-alert" @click="EliminarArticulo">Eliminar</button>
+          <a class="btn btn-alert" @click="EliminarArticulo(article._id)">Eliminar</a>
         </article>
         <!-- agegan lo otros articulos -->
       </section>
@@ -28,6 +28,7 @@ import SidebarComponent from "./SidebarComponent.vue";
 import SliderComponent from "./SliderComponent.vue";
 import Global from "../Global";
 import Axios from "axios";
+import Swal from "sweetalert2";
 export default {
   name: "ArticleDetailsComponent",
   components: {
@@ -53,7 +54,20 @@ export default {
         })
         .catch(err => console.log(err));
     },
-    EliminarArticulo() {}
+    EliminarArticulo(id) {
+      Axios.delete(this.url + "article/" + id)
+        .then(res => {
+          console.log(res);
+          //
+          Swal.fire(
+            "Borrado Correctamente",
+            "El articulo se a borrado",
+            "success"
+          );
+          this.$router.push("/blog");
+        })
+        .catch(err => console.log("No se puedo borrar" + err));
+    }
   }
 };
 </script>
